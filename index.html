@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samah Alim Immigration Services — استراتيجية التسويق 90 يومًا</title>
+<title>Samah Alim Immigration Services — استراتيجية المحتوى</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -14,1370 +14,1663 @@
   --navy-3:#1B4266;
   --gold:#C9A227;
   --gold-soft:#E6C86A;
-  --gold-dim:rgba(201,162,39,.18);
+  --gold-dim:rgba(201,162,39,.14);
   --cream:#F8F5EF;
   --teal:#0E7C7B;
   --ink:#0A1F33;
   --muted:#61748A;
   --line:rgba(10,31,51,.12);
-  --white:#ffffff;
-  --shadow:0 18px 50px -20px rgba(10,31,51,.35);
+  --white:#fff;
+  --shadow:0 18px 50px -22px rgba(10,31,51,.35);
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
-
-html,body{height:100%;}
-
+html{scroll-behavior:smooth;}
 body{
   font-family:'IBM Plex Sans Arabic','Segoe UI',sans-serif;
-  background:var(--navy);
+  background:var(--cream);
   color:var(--ink);
-  overflow:hidden;
+  line-height:1.7;
   -webkit-font-smoothing:antialiased;
 }
 
-/* ============ DECK ============ */
-.deck{position:relative;height:100vh;width:100%;}
-
-.slide{
-  position:absolute;
-  inset:0;
-  display:none;
-  padding:clamp(28px,4.2vw,64px) clamp(24px,5vw,88px);
-  overflow-y:auto;
-  background:var(--cream);
-  animation:fade .5s ease;
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,31,51,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-.slide.active{display:block;}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(14px);}
-  to{opacity:1;transform:translateY(0);}
+.nav-inner{
+  max-width:1240px;margin:0 auto;
+  padding:14px clamp(18px,4vw,40px);
+  display:flex;align-items:center;gap:24px;
+  justify-content:space-between;
 }
-
-/* scrollbar */
-.slide::-webkit-scrollbar{width:8px;}
-.slide::-webkit-scrollbar-thumb{background:rgba(10,31,51,.18);border-radius:8px;}
-
-/* ============ TYPO ============ */
-h1,h2,h3,h4{font-family:'Tajawal',sans-serif;line-height:1.25;}
-
-.eyebrow{
-  font-family:'Tajawal',sans-serif;
-  font-size:clamp(11px,1vw,13px);
-  font-weight:700;
-  letter-spacing:.18em;
-  color:var(--gold);
-  text-transform:uppercase;
-  margin-bottom:14px;
+.brand{
   display:flex;align-items:center;gap:12px;
+  color:#fff;text-decoration:none;
 }
-.eyebrow::after{
-  content:"";height:1px;flex:1;max-width:120px;
-  background:linear-gradient(to left,var(--gold),transparent);
+.brand-mark{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  display:grid;place-items:center;
+  font-family:'Tajawal';font-weight:800;color:var(--navy);font-size:16px;
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.brand-text b{font-family:'Tajawal';font-size:15px;font-weight:700;}
+.brand-text span{font-size:11px;color:var(--gold-soft);letter-spacing:.08em;}
+
+.nav-links{
+  display:flex;gap:4px;flex-wrap:wrap;
+}
+.nav-links a{
+  color:rgba(255,255,255,.72);
+  text-decoration:none;
+  font-size:13.5px;font-weight:500;
+  padding:8px 14px;border-radius:8px;
+  transition:.2s;white-space:nowrap;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06);}
+.nav-links a.active{
+  color:var(--navy);background:var(--gold);
+  font-weight:700;
 }
 
-.slide-title{
-  font-size:clamp(26px,3.4vw,46px);
-  font-weight:800;
-  color:var(--navy);
-  letter-spacing:-.5px;
-  margin-bottom:8px;
-}
-.slide-sub{
-  font-size:clamp(14px,1.35vw,17px);
-  color:var(--muted);
-  font-weight:400;
-  max-width:820px;
-  line-height:1.75;
-  margin-bottom:clamp(22px,3vw,40px);
-}
+/* ============ PAGES ============ */
+.page{display:none;animation:fade .45s ease;}
+.page.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
-/* ============ COVER ============ */
-.cover{
+.container{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,40px);}
+
+/* ============ HERO ============ */
+.hero{
   background:
-    radial-gradient(circle at 82% 18%, rgba(201,162,39,.16), transparent 45%),
-    radial-gradient(circle at 12% 88%, rgba(14,124,123,.22), transparent 48%),
-    linear-gradient(150deg,#0A1F33 0%,#12314D 55%,#0A1F33 100%);
-  color:#fff;
-  display:flex;flex-direction:column;justify-content:center;
-  position:relative;
+    radial-gradient(circle at 85% 15%, rgba(201,162,39,.14), transparent 45%),
+    radial-gradient(circle at 8% 90%, rgba(14,124,123,.18), transparent 50%),
+    linear-gradient(150deg,#0A1F33,#12314D 55%,#0A1F33);
+  color:#fff;padding:clamp(50px,7vw,90px) 0 clamp(40px,6vw,70px);
+  position:relative;overflow:hidden;
 }
-.cover::before{
+.hero::before{
   content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:64px 64px;
-  pointer-events:none;
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:56px 56px;pointer-events:none;
 }
-.cover-inner{position:relative;z-index:2;max-width:1000px;}
-
-.badge-license{
+.hero-inner{position:relative;z-index:2;}
+.eyebrow{
   display:inline-flex;align-items:center;gap:10px;
-  padding:9px 18px;border-radius:100px;
-  border:1px solid rgba(201,162,39,.45);
+  padding:7px 15px;border-radius:100px;
+  border:1px solid rgba(201,162,39,.4);
   background:rgba(201,162,39,.09);
   color:var(--gold-soft);
-  font-size:13px;font-weight:600;
-  margin-bottom:30px;
-  backdrop-filter:blur(6px);
+  font-size:12.5px;font-weight:600;
+  margin-bottom:20px;
 }
-.badge-license .dot{
-  width:7px;height:7px;border-radius:50%;background:var(--gold);
-  box-shadow:0 0 0 4px rgba(201,162,39,.2);
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+.hero h1{
+  font-family:'Tajawal';font-weight:800;
+  font-size:clamp(30px,4.6vw,54px);
+  line-height:1.15;letter-spacing:-.8px;
+  margin-bottom:18px;max-width:900px;
 }
-
-.cover h1{
-  font-size:clamp(34px,5.4vw,74px);
-  font-weight:800;
-  line-height:1.12;
-  letter-spacing:-1.5px;
-  margin-bottom:22px;
-}
-.cover h1 .accent{
+.hero h1 .accent{
   background:linear-gradient(100deg,var(--gold),var(--gold-soft));
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.cover p.lead{
-  font-size:clamp(15px,1.6vw,20px);
+.hero p.lead{
+  font-size:clamp(15px,1.5vw,18px);
   color:rgba(255,255,255,.72);
-  max-width:660px;line-height:1.85;
-  margin-bottom:44px;
+  max-width:720px;line-height:1.85;
 }
-.cover-meta{
-  display:flex;flex-wrap:wrap;gap:14px;
-}
-.chip{
-  padding:11px 20px;border-radius:12px;
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,255,255,.1);
-  font-size:13.5px;color:rgba(255,255,255,.85);font-weight:500;
-}
-.chip b{color:var(--gold-soft);font-weight:700;}
 
-/* ============ CARDS ============ */
-.grid{display:grid;gap:clamp(14px,1.6vw,22px);}
+/* ============ SECTIONS ============ */
+.section{padding:clamp(50px,6vw,80px) 0;}
+.section.alt{background:#fff;}
+.section-title{
+  font-family:'Tajawal';font-weight:800;
+  font-size:clamp(24px,3vw,38px);
+  color:var(--navy);line-height:1.2;
+  margin-bottom:10px;letter-spacing:-.5px;
+}
+.section-sub{
+  font-size:clamp(14px,1.2vw,16px);
+  color:var(--muted);max-width:780px;
+  line-height:1.8;margin-bottom:clamp(28px,4vw,48px);
+}
+.kicker{
+  font-family:'Tajawal';font-weight:700;
+  font-size:12px;letter-spacing:.2em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;
+}
+.kicker::after{content:"";height:1px;width:60px;background:linear-gradient(to left,var(--gold),transparent);}
+
+/* ============ GRID ============ */
+.grid{display:grid;gap:clamp(14px,1.8vw,22px);}
 .g2{grid-template-columns:repeat(2,1fr);}
 .g3{grid-template-columns:repeat(3,1fr);}
 .g4{grid-template-columns:repeat(4,1fr);}
 
+/* ============ CARD ============ */
 .card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:clamp(18px,1.9vw,26px);
-  box-shadow:0 1px 2px rgba(10,31,51,.04);
+  background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:clamp(18px,2vw,26px);
   transition:.25s;
 }
 .card:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
-
-.card .num{
-  font-family:'Tajawal',sans-serif;
-  font-size:13px;font-weight:800;color:var(--gold);
-  letter-spacing:.1em;margin-bottom:10px;display:block;
-}
 .card h3{
-  font-size:clamp(15px,1.35vw,18px);
-  color:var(--navy);margin-bottom:9px;font-weight:700;
+  font-family:'Tajawal';font-size:clamp(15px,1.3vw,18px);
+  color:var(--navy);font-weight:700;margin-bottom:10px;
 }
-.card p{
-  font-size:clamp(12.5px,1.05vw,14px);
-  color:var(--muted);line-height:1.8;
+.card p{font-size:14px;color:var(--muted);line-height:1.8;}
+.card .tag{
+  display:inline-block;font-size:11px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
 }
 
-/* icon circle */
-.ic{
-  width:44px;height:44px;border-radius:12px;
+/* ============ PLATFORM HERO ============ */
+.plat-hero{
+  padding:clamp(40px,5vw,64px) 0 clamp(30px,4vw,50px);
+  color:#fff;position:relative;overflow:hidden;
+}
+.plat-hero.tt{background:linear-gradient(140deg,#0a0a0a,#1a1a1a 60%,#000);}
+.plat-hero.ig{background:linear-gradient(135deg,#FEDA75 0%,#D62976 45%,#4F5BD5 100%);}
+.plat-hero.yt{background:linear-gradient(135deg,#7a0f0f,#E12B2B 60%,#ff4d4d);}
+
+.plat-hero .plat-badge{
+  display:inline-flex;align-items:center;gap:14px;
+  margin-bottom:22px;
+}
+.plat-hero .plat-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.28);
   display:grid;place-items:center;
-  background:var(--gold-dim);color:var(--gold);
-  margin-bottom:14px;
+  backdrop-filter:blur(8px);
 }
-.ic svg{width:21px;height:21px;stroke-width:1.9;}
-
-/* ============ LISTS ============ */
-ul.clean{list-style:none;}
-ul.clean li{
-  position:relative;
-  padding-inline-start:24px;
-  margin-bottom:11px;
-  font-size:clamp(13px,1.1vw,15px);
-  color:#2A3F55;line-height:1.75;
+.plat-hero .plat-icon svg{width:30px;height:30px;}
+.plat-hero h1{
+  font-family:'Tajawal';font-weight:800;
+  font-size:clamp(28px,4vw,46px);
+  line-height:1.15;letter-spacing:-.8px;margin-bottom:14px;
 }
-ul.clean li::before{
-  content:"";position:absolute;
-  inset-inline-start:0;top:9px;
-  width:8px;height:8px;border-radius:2px;
-  background:var(--gold);transform:rotate(45deg);
+.plat-hero p{
+  font-size:clamp(14px,1.4vw,17px);
+  color:rgba(255,255,255,.85);
+  max-width:720px;line-height:1.85;
 }
 
-/* ============ PANELS ============ */
-.panel{
+/* ============ CONTENT IDEA ============ */
+.idea{
   background:#fff;border:1px solid var(--line);
-  border-radius:20px;padding:clamp(20px,2.2vw,32px);
+  border-radius:14px;padding:18px 20px;
+  display:flex;gap:16px;align-items:flex-start;
+  transition:.2s;
 }
-.panel-dark{
-  background:linear-gradient(150deg,var(--navy),var(--navy-2));
-  color:#fff;border:none;
+.idea:hover{border-color:var(--gold);box-shadow:0 8px 24px -14px rgba(201,162,39,.5);}
+.idea .num{
+  flex-shrink:0;width:34px;height:34px;border-radius:10px;
+  background:var(--gold-dim);color:var(--gold);
+  display:grid;place-items:center;
+  font-family:'Tajawal';font-weight:800;font-size:13px;
 }
-.panel-dark h3{color:#fff;}
-.panel-dark p{color:rgba(255,255,255,.72);}
+.idea .body h4{
+  font-family:'Tajawal';font-size:15px;font-weight:700;
+  color:var(--navy);margin-bottom:6px;line-height:1.4;
+}
+.idea .body p{font-size:13px;color:var(--muted);line-height:1.7;}
+.idea .meta{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;
+}
+.idea .meta span{
+  font-size:11px;font-weight:600;
+  padding:3px 9px;border-radius:6px;
+  background:#F1EDE4;color:#7A6A3D;
+}
 
-.quote{
-  border-inline-start:3px solid var(--gold);
-  padding-inline-start:20px;
-  font-size:clamp(15px,1.5vw,20px);
-  font-family:'Tajawal',sans-serif;
-  font-weight:500;
-  line-height:1.7;color:var(--navy);
+/* ============ PILLAR ============ */
+.pillar{
+  background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:22px;
+  border-top:3px solid var(--gold);
 }
-.panel-dark .quote{color:#fff;}
+.pillar h3{
+  font-family:'Tajawal';font-size:17px;color:var(--navy);
+  font-weight:700;margin-bottom:10px;
+}
+.pillar p{font-size:13.5px;color:var(--muted);line-height:1.8;}
+.pillar ul{list-style:none;margin-top:12px;}
+.pillar ul li{
+  position:relative;padding-inline-start:20px;
+  font-size:13px;color:#2A3F55;margin-bottom:8px;line-height:1.65;
+}
+.pillar ul li::before{
+  content:"";position:absolute;inset-inline-start:0;top:8px;
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+}
+
+/* ============ METRIC ============ */
+.metric{
+  background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:20px;text-align:center;
+}
+.metric .val{
+  font-family:'Tajawal';font-size:clamp(22px,2.4vw,32px);
+  font-weight:800;color:var(--navy);line-height:1;margin-bottom:6px;
+}
+.metric .val.gold{color:var(--gold);}
+.metric .lbl{font-size:12px;color:var(--muted);font-weight:500;}
 
 /* ============ TABLE ============ */
 table{
   width:100%;border-collapse:separate;border-spacing:0;
   background:#fff;border:1px solid var(--line);
-  border-radius:16px;overflow:hidden;
-  font-size:clamp(12.5px,1.05vw,14.5px);
+  border-radius:14px;overflow:hidden;
+  font-size:13.5px;
 }
 thead th{
   background:var(--navy);color:#fff;
-  font-family:'Tajawal',sans-serif;font-weight:700;
-  padding:14px 16px;text-align:start;font-size:13.5px;
-  letter-spacing:.02em;
+  font-family:'Tajawal';font-weight:700;
+  padding:13px 16px;text-align:start;font-size:13px;
 }
 tbody td{
-  padding:13px 16px;border-bottom:1px solid var(--line);
+  padding:12px 16px;border-bottom:1px solid var(--line);
   color:#2A3F55;line-height:1.6;
 }
 tbody tr:last-child td{border-bottom:none;}
 tbody tr:nth-child(even){background:#FBFAF7;}
 tbody td strong{color:var(--navy);font-weight:700;}
 
-/* ============ PLATFORM HEADER ============ */
-.plat-head{
-  display:flex;align-items:center;gap:18px;margin-bottom:26px;
-}
-.plat-logo{
-  width:58px;height:58px;border-radius:16px;
-  display:grid;place-items:center;flex-shrink:0;
-}
-.plat-logo svg{width:28px;height:28px;}
-.plat-yt{background:#FFE9E9;color:#E12B2B;}
-.plat-ig{background:linear-gradient(135deg,#FEDA75,#D62976 55%,#4F5BD5);color:#fff;}
-.plat-tt{background:#111;color:#fff;}
-.plat-head h2{
-  font-size:clamp(22px,2.6vw,34px);color:var(--navy);font-weight:800;
-  line-height:1.2;
-}
-.plat-head span{
-  font-size:13px;color:var(--muted);font-weight:500;
-}
-
-/* ============ METRIC ============ */
-.metric{
+/* ============ PANEL ============ */
+.panel{
   background:#fff;border:1px solid var(--line);
-  border-radius:16px;padding:20px;text-align:center;
+  border-radius:18px;padding:clamp(20px,2.4vw,32px);
 }
-.metric .val{
-  font-family:'Tajawal',sans-serif;
-  font-size:clamp(22px,2.6vw,36px);font-weight:800;
-  color:var(--navy);line-height:1;margin-bottom:8px;
-  letter-spacing:-1px;
+.panel-dark{
+  background:linear-gradient(150deg,var(--navy),var(--navy-2));
+  color:#fff;border:none;
 }
-.metric .val.gold{color:var(--gold);}
-.metric .lbl{
-  font-size:12.5px;color:var(--muted);font-weight:500;
+.panel-dark h3{color:#fff;}
+.panel-dark ul li{color:rgba(255,255,255,.82);}
+.panel-dark ul li::before{background:var(--gold);}
+
+ul.clean{list-style:none;}
+ul.clean li{
+  position:relative;padding-inline-start:22px;
+  margin-bottom:10px;font-size:14px;color:#2A3F55;line-height:1.75;
+}
+ul.clean li::before{
+  content:"";position:absolute;inset-inline-start:0;top:9px;
+  width:7px;height:7px;border-radius:2px;
+  background:var(--gold);transform:rotate(45deg);
 }
 
-/* ============ MONTH BANNER ============ */
-.month-banner{
-  display:flex;align-items:center;gap:20px;
-  background:linear-gradient(100deg,var(--navy),var(--navy-3));
-  border-radius:20px;padding:clamp(20px,2.2vw,30px) clamp(22px,2.4vw,34px);
-  color:#fff;margin-bottom:clamp(20px,2.4vw,32px);
-  position:relative;overflow:hidden;
+.quote{
+  border-inline-start:3px solid var(--gold);
+  padding-inline-start:20px;
+  font-family:'Tajawal';font-size:clamp(15px,1.6vw,19px);
+  font-weight:500;line-height:1.7;color:var(--navy);
 }
-.month-banner::after{
-  content:"";position:absolute;inset-inline-end:-40px;top:-40px;
-  width:180px;height:180px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,162,39,.28),transparent 70%);
-}
-.month-badge{
-  width:66px;height:66px;border-radius:18px;flex-shrink:0;
-  background:var(--gold);color:var(--navy);
-  display:grid;place-items:center;
-  font-family:'Tajawal',sans-serif;font-weight:800;font-size:30px;
-  position:relative;z-index:2;
-}
-.month-banner h2{
-  font-size:clamp(20px,2.3vw,30px);font-weight:800;margin-bottom:5px;
-  position:relative;z-index:2;
-}
-.month-banner p{
-  font-size:13.5px;color:rgba(255,255,255,.7);
-  position:relative;z-index:2;
-}
+.panel-dark .quote{color:#fff;}
 
-/* ============ SECTION DIVIDER ============ */
-.divider{
-  height:1px;background:var(--line);margin:clamp(22px,2.6vw,34px) 0;
+/* ============ FOOTER ============ */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.6);
+  padding:34px 0;text-align:center;font-size:13px;
 }
-
-/* ============ NAV ============ */
-.topbar{
-  position:fixed;top:0;left:0;right:0;height:3px;
-  background:rgba(255,255,255,.12);z-index:100;
-}
-.topbar .bar{
-  height:100%;width:0;
-  background:linear-gradient(to left,var(--gold),var(--gold-soft));
-  transition:width .4s ease;
-}
-
-.nav{
-  position:fixed;bottom:22px;left:50%;transform:translateX(-50%);
-  display:flex;align-items:center;gap:10px;
-  background:rgba(10,31,51,.92);
-  backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.12);
-  padding:8px 10px;border-radius:100px;
-  z-index:100;box-shadow:0 12px 40px -12px rgba(0,0,0,.5);
-}
-.nav button{
-  width:38px;height:38px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.06);
-  color:#fff;cursor:pointer;display:grid;place-items:center;
-  transition:.2s;
-}
-.nav button:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);}
-.nav button svg{width:16px;height:16px;}
-.counter{
-  font-family:'Tajawal',sans-serif;
-  font-size:13.5px;color:rgba(255,255,255,.85);
-  font-weight:600;min-width:56px;text-align:center;
-  letter-spacing:.06em;
-}
+.footer b{color:var(--gold-soft);font-weight:600;}
 
 /* ============ RESPONSIVE ============ */
-@media (max-width:900px){
-  .g4{grid-template-columns:repeat(2,1fr);}
-  .g3{grid-template-columns:repeat(2,1fr);}
-  .slide{padding:26px 20px 100px;}
-  .nav{bottom:14px;}
+@media(max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr);}
+  .nav-links{gap:2px;}
+  .nav-links a{padding:6px 10px;font-size:12.5px;}
+  .brand-text{display:none;}
 }
-@media (max-width:600px){
+@media(max-width:600px){
   .g2,.g3,.g4{grid-template-columns:1fr;}
-  .cover h1{font-size:30px;}
-  .month-banner{flex-direction:column;text-align:center;}
-}
-
-/* print */
-@media print{
-  body{overflow:visible;background:#fff;}
-  .slide{display:block!important;position:static;page-break-after:always;height:auto;min-height:auto;}
-  .nav,.topbar{display:none;}
+  .nav-inner{gap:10px;padding:12px 14px;}
+  .nav-links{overflow-x:auto;}
 }
 </style>
 </head>
 <body>
 
-<div class="topbar"><div class="bar" id="bar"></div></div>
-
-<div class="deck" id="deck">
-
-<!-- ================= 1. COVER ================= -->
-<section class="slide active cover">
-  <div class="cover-inner">
-    <div class="badge-license">
-      <span class="dot"></span>
-      Regulated Canadian Immigration Consultant — RCIC #R709587
-    </div>
-    <h1>
-      استراتيجية التسويق<br>
-      <span class="accent">خطة 90 يومًا</span>
-    </h1>
-    <p class="lead">
-      خطة عمل متكاملة لبناء الثقة وجذب عملاء جدد عبر محتوى تعليمي هادف
-      على YouTube و Instagram و TikTok — مع الالتزام الكامل بمعايير CICC.
-    </p>
-    <div class="cover-meta">
-      <div class="chip">العميل: <b>Samah Alim Immigration Services</b></div>
-      <div class="chip">المدة: <b>90 يومًا</b></div>
-      <div class="chip">المنصات: <b>YouTube · Instagram · TikTok</b></div>
-      <div class="chip">اللغات: <b>الإنجليزية · العربية السودانية</b></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 2. AGENDA ================= -->
-<section class="slide">
-  <div class="eyebrow">المحتويات</div>
-  <h2 class="slide-title">ما الذي سنغطيه اليوم</h2>
-  <p class="slide-sub">رحلة كاملة من فهم العميل، إلى بناء المحتوى، إلى الأرقام المتوقعة وفريق العمل.</p>
-
-  <div class="grid g3">
-    <div class="card">
-      <span class="num">01</span>
-      <h3>نظرة على الشركة</h3>
-      <p>الهوية، الترخيص، الخدمات، ونقاط القوة.</p>
-    </div>
-    <div class="card">
-      <span class="num">02</span>
-      <h3>التموضع والرسالة</h3>
-      <p>كيف نتميز في سوق مزدحم بالوعود.</p>
-    </div>
-    <div class="card">
-      <span class="num">03</span>
-      <h3>الجمهور المستهدف</h3>
-      <p>الطلاب، العمالة الماهرة، العائلات، وأرباب العمل.</p>
-    </div>
-    <div class="card">
-      <span class="num">04</span>
-      <h3>أعمدة المحتوى</h3>
-      <p>ماذا ننشر؟ ولماذا يبني الثقة؟</p>
-    </div>
-    <div class="card">
-      <span class="num">05</span>
-      <h3>خطة المنصات</h3>
-      <p>YouTube، Instagram، TikTok — لكل منصة دور.</p>
-    </div>
-    <div class="card">
-      <span class="num">06</span>
-      <h3>خطة 90 يومًا</h3>
-      <p>شهر بشهر، مع الأرقام المتوقعة.</p>
-    </div>
-    <div class="card">
-      <span class="num">07</span>
-      <h3>فريق العمل</h3>
-      <p>من يفعل ماذا، وما نحتاجه من Samah.</p>
-    </div>
-    <div class="card">
-      <span class="num">08</span>
-      <h3>القياس والامتثال</h3>
-      <p>مؤشرات الأداء وقواعد CICC.</p>
-    </div>
-    <div class="card">
-      <span class="num">09</span>
-      <h3>الخطوات التالية</h3>
-      <p>قائمة تنفيذية للانطلاق.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 3. SNAPSHOT ================= -->
-<section class="slide">
-  <div class="eyebrow">01 · نظرة على الشركة</div>
-  <h2 class="slide-title">من نحن؟</h2>
-  <p class="slide-sub">مستشارة هجرة كندية مرخصة، تقود كل ملف بنفسها، وتخدم بالإنجليزية والعربية.</p>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:20px;color:var(--navy);margin-bottom:16px;">البيانات الأساسية</h3>
-      <ul class="clean">
-        <li><strong>الاسم التجاري:</strong> Samah Alim Immigration Services</li>
-        <li><strong>المستشارة:</strong> Samah Yahia Alim — RCIC #R709587</li>
-        <li><strong>الترخيص:</strong> من CICC منذ 2021</li>
-        <li><strong>الموقع:</strong> London, Ontario</li>
-        <li><strong>طريقة الخدمة:</strong> أونلاين — داخل كندا وخارجها</li>
-        <li><strong>اللغات:</strong> الإنجليزية والعربية السودانية</li>
-        <li><strong>الفريق:</strong> Samah تقود كل ملف مع فريق دعم</li>
-      </ul>
-    </div>
-    <div class="panel panel-dark">
-      <h3 style="font-size:20px;margin-bottom:16px;">نقاط القوة الجوهرية</h3>
-      <ul class="clean" style="--x:0;">
-        <li style="color:rgba(255,255,255,.85);">خدمة شخصية — Samah تراجع كل ملف بنفسها</li>
-        <li style="color:rgba(255,255,255,.85);">خبرة +15 سنة في الإدارة والموارد البشرية</li>
-        <li style="color:rgba(255,255,255,.85);">تخصص في الملفات المعقدة والرفض وإعادة النظر</li>
-        <li style="color:rgba(255,255,255,.85);">جذور مجتمعية سودانية وعمل advocacy</li>
-        <li style="color:rgba(255,255,255,.85);">عملية واضحة: تقييم ← استراتيجية ← تحضير ← تقديم ← متابعة</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="quote">
-    “Samah لا تبيع وعودًا — تبيع الفهم والوضوح والاهتمام الشخصي بكل ملف.”
-  </div>
-</section>
-
-<!-- ================= 4. POSITIONING ================= -->
-<section class="slide">
-  <div class="eyebrow">02 · التموضع</div>
-  <h2 class="slide-title">كيف نتميز؟</h2>
-  <p class="slide-sub">السوق مليء بالمبالغات. تميّزنا الحقيقي هو الصدق، الوضوح، والعمق الإنساني.</p>
-
-  <div class="grid g3" style="margin-bottom:24px;">
-    <div class="card">
-      <div class="ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4z"/></svg>
-      </div>
-      <h3>خدمة شخصية</h3>
-      <p>Samah تقود كل ملف بنفسها، مع فريق يدعم. لا وكالة كبيرة تفقد العميل في الزحام.</p>
-    </div>
-    <div class="card">
-      <div class="ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
-      </div>
-      <h3>توجيه المسار</h3>
-      <p>تقييم الحالة، اختيار المسار الأنسب، وخطة خطوة بخطوة نحو الإقامة الدائمة والجنسية.</p>
-    </div>
-    <div class="card">
-      <div class="ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6"/></svg>
-      </div>
-      <h3>فهم مجتمعي</h3>
-      <p>جزء من المجتمع السوداني الكندي، تعمل بالعربية والإنجليزية، وتفهم السياق الثقافي.</p>
-    </div>
-    <div class="card">
-      <div class="ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg>
-      </div>
-      <h3>الملفات المعقدة</h3>
-      <p>الرفض، إعادة النظر، خطابات الإنصاف الإجرائي، والملفات المتوقفة — روتين يومي.</p>
-    </div>
-    <div class="card">
-      <div class="ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
-      </div>
-      <h3>خلفية إدارية و HR</h3>
-      <p>أكثر من 15 سنة في المستندات والسجلات والعمليات — دقة في كل تفصيلة.</p>
-    </div>
-    <div class="card">
-      <div class="ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>
-      </div>
-      <h3>عملية واضحة</h3>
-      <p>تقييم ← استراتيجية ← تحضير ← تقديم ← متابعة. كل خطوة معروفة للعميل.</p>
-    </div>
-  </div>
-
-  <div class="panel" style="border-inline-start:4px solid var(--gold);">
-    <h3 style="font-size:17px;color:var(--navy);margin-bottom:10px;">الرسالة الأساسية للعلامة</h3>
-    <p style="font-size:16px;color:#2A3F55;line-height:1.85;font-family:'Tajawal',sans-serif;font-weight:500;">
-      «مستشارة هجرة كندية مرخصة تشرح لك طريقك بوضوح، وتتعامل مع الملفات الصعبة، وتخدمك بالإنجليزية والعربية.»
-    </p>
-  </div>
-</section>
-
-<!-- ================= 5. AUDIENCE ================= -->
-<section class="slide">
-  <div class="eyebrow">03 · الجمهور المستهدف</div>
-  <h2 class="slide-title">لمن نتحدث؟</h2>
-  <p class="slide-sub">جمهوران للنمو + جمهوران أساسيان. كل جمهور له رسالة ومحتوى مختلف.</p>
-
-  <div class="grid g4" style="margin-bottom:26px;">
-    <div class="card" style="border-top:3px solid var(--gold);">
-      <h3>🎓 الطلاب</h3>
-      <p>من كل المجتمعات، مع تركيز على الناطقين بالعربية والأفارقة. مسار: دراسة ← عمل بعد التخرج ← إقامة دائمة.</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--gold);">
-      <h3>💼 العمالة الماهرة</h3>
-      <p>في المجالات المطلوبة: الرعاية الصحية، الحرف، والتخصصات التقنية. Express Entry وبرامج المقاطعات.</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--teal);">
-      <h3>👨‍👩‍👧 العائلات السودانية</h3>
-      <p>داخل كندا وخارجها، بما في ذلك ملفات سياسة السودان العامة، والرفض، وإعادة النظر.</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--teal);">
-      <h3>🏢 أرباب العمل</h3>
-      <p>الشركات التي توظف عمالة أجنبية وتحتاج LMIA وامتثالًا نظاميًا واضحًا.</p>
-    </div>
-  </div>
-
-  <div class="grid g2">
-    <div class="panel">
-      <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;">جمهور ثانوي مهم</h3>
-      <ul class="clean">
-        <li>الكنديون والمقيمون الدائمون الذين يرعون أقاربهم</li>
-        <li>مجموعات الرعاية الخاصة واللاجئون</li>
-        <li>الحالات الإنسانية والتعاطفية</li>
-        <li>طلبات الزيارة و Super Visa للوالدين والأجداد</li>
-      </ul>
-    </div>
-    <div class="panel" style="background:#FFF9EC;border-color:rgba(201,162,39,.3);">
-      <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;">ملاحظات مهمة للفريق</h3>
-      <ul class="clean">
-        <li>النبرة شاملة — الطلاب من دول ومجتمعات متعددة</li>
-        <li>الصور والأمثلة يجب ألا تقتصر على المجتمع السوداني</li>
-        <li>Samah لا تخدم بالفرنسية — أي محتوى فرنسي يُترجم ويُعتمد احترافيًا</li>
-        <li>لا نذكر المنظمات الشريكة بالاسم في التسويق العام</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 6. CONTENT PILLARS ================= -->
-<section class="slide">
-  <div class="eyebrow">04 · أعمدة المحتوى</div>
-  <h2 class="slide-title">ماذا ننشر؟</h2>
-  <p class="slide-sub">المحتوى التعليمي هو أقوى أداة لبناء الثقة. لا نبيع — نشرح.</p>
-
-  <div class="grid g2" style="margin-bottom:24px;">
-    <div class="card">
-      <span class="num">العمود 01</span>
-      <h3>تعليمي — شرح المصطلحات</h3>
-      <p>ما هو خطاب الإنصاف الإجرائي؟ الفرق بين Study Permit و PGWP؟ ما معنى LMIA؟ محتوى يبني السلطة المعرفية.</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 02</span>
-      <h3>مسارات الهجرة</h3>
-      <p>Express Entry، OINP، Super Visa، سياسة السودان، الرعاية الأسرية — نظرة عامة واضحة لكل مسار.</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 03</span>
-      <h3>أخطاء شائعة</h3>
-      <p>أخطاء تؤدي إلى الرفض أو التأخير. محتوى وقائي يجذب الباحثين عن حلول.</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 04</span>
-      <h3>الملفات المعقدة</h3>
-      <p>كيف نتعامل مع ملف متوقف؟ ما معنى إعادة النظر؟ يبرز خبرة Samah النادرة.</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 05</span>
-      <h3>مجتمعي وإنساني</h3>
-      <p>عمل Samah المجتمعي، دعم العائلات، التوعية. يبني ارتباطًا عاطفيًا حقيقيًا.</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 06</span>
-      <h3>أرباب العمل (B2B)</h3>
-      <p>محتوى مخصص لـ LinkedIn وYouTube: ما هو LMIA؟ كيف يوظف صاحب العمل عاملًا أجنبيًا؟</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 07</span>
-      <h3>خلف الكواليس</h3>
-      <p>يوم في المكتب، كيف تراجع Samah الملفات، روتين العمل. يقرب الجمهور ويبني الثقة.</p>
-    </div>
-    <div class="card">
-      <span class="num">العمود 08</span>
-      <h3>أسئلة وأجوبة</h3>
-      <p>Q&A مباشر على Instagram، أسئلة من واتساب، ردود فيديو. تفاعل مباشر مع المجتمع.</p>
-    </div>
-  </div>
-
-  <div class="panel" style="background:linear-gradient(100deg,var(--navy),var(--navy-2));color:#fff;border:none;">
-    <h3 style="color:#fff;font-size:17px;margin-bottom:16px;">توزيع المحتوى المقترح — قاعدة 70/20/10</h3>
-    <div class="grid g3">
-      <div style="text-align:center;">
-        <div style="font-family:'Tajawal';font-size:38px;font-weight:800;color:var(--gold);">70%</div>
-        <div style="font-size:13.5px;color:rgba(255,255,255,.75);margin-top:6px;">تعليمي وبناء ثقة</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Tajawal';font-size:38px;font-weight:800;color:var(--gold);">20%</div>
-        <div style="font-size:13.5px;color:rgba(255,255,255,.75);margin-top:6px;">إنساني ومجتمعي وخلف الكواليس</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Tajawal';font-size:38px;font-weight:800;color:var(--gold);">10%</div>
-        <div style="font-size:13.5px;color:rgba(255,255,255,.75);margin-top:6px;">تحويلي — حجز استشارة</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 7. PLATFORMS OVERVIEW ================= -->
-<section class="slide">
-  <div class="eyebrow">05 · المنصات</div>
-  <h2 class="slide-title">ثلاث منصات، ثلاثة أدوار</h2>
-  <p class="slide-sub">لا نكرر المحتوى — نعيد تشكيله لكل منصة بما يناسب سلوك جمهورها.</p>
-
-  <div class="grid g3">
-    <div class="panel" style="text-align:center;border-top:4px solid #E12B2B;">
-      <div style="width:64px;height:64px;border-radius:18px;background:#FFE9E9;color:#E12B2B;display:grid;place-items:center;margin:0 auto 18px;">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:30px;height:30px;"><path d="M21.6 7.2s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-.9C16.4 4.1 12 4.1 12 4.1h-.1s-4.4 0-6.8.2c-.4.1-1.3.1-2 .9-.6.6-.8 2-.8 2S2.1 8.8 2.1 10.5v1.6c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.1 6.4.2 6.4.2s4.4 0 6.8-.2c.4-.1 1.3-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.9 14.2V8.6l5.6 2.8-5.6 2.8z"/></svg>
-      </div>
-      <h3 style="font-size:19px;color:var(--navy);margin-bottom:10px;">YouTube</h3>
-      <p style="font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:14px;">محرك الثقة والبحث طويل المدى. فيديوهات شرح عميقة تُبنى عليها بقية المحتوى.</p>
-      <div style="font-size:12.5px;color:var(--navy);font-weight:700;">الدور: Authority & SEO</div>
-    </div>
-
-    <div class="panel" style="text-align:center;border-top:4px solid #D62976;">
-      <div style="width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#FEDA75,#D62976 55%,#4F5BD5);color:#fff;display:grid;place-items:center;margin:0 auto 18px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" style="width:30px;height:30px;"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <h3 style="font-size:19px;color:var(--navy);margin-bottom:10px;">Instagram</h3>
-      <p style="font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:14px;">المنصة الأساسية للتفاعل اليومي. Reels، Carousels، Stories، وQ&A مباشر.</p>
-      <div style="font-size:12.5px;color:var(--navy);font-weight:700;">الدور: Community & Engagement</div>
-    </div>
-
-    <div class="panel" style="text-align:center;border-top:4px solid #111;">
-      <div style="width:64px;height:64px;border-radius:18px;background:#111;color:#fff;display:grid;place-items:center;margin:0 auto 18px;">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:28px;height:28px;"><path d="M16.6 5.8a5 5 0 0 1-1.1-3.3h-3.3v12.1a2.7 2.7 0 1 1-2.2-2.6V8.6a6 6 0 1 0 5.5 6V9a8.2 8.2 0 0 0 4.5 1.4V7.1a5 5 0 0 1-3.4-1.3z"/></svg>
-      </div>
-      <h3 style="font-size:19px;color:var(--navy);margin-bottom:10px;">TikTok</h3>
-      <p style="font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:14px;">أسرع قناة للوصول الجماهيري. فيديوهات 30–60 ثانية تصل لجمهور جديد تمامًا.</p>
-      <div style="font-size:12.5px;color:var(--navy);font-weight:700;">الدور: Reach & Awareness</div>
-    </div>
-  </div>
-
-  <div class="panel" style="margin-top:24px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
-    <h3 style="font-size:16px;color:var(--navy);margin-bottom:12px;">مبدأ إعادة الاستخدام — Produce Once, Publish Everywhere</h3>
-    <p style="font-size:14px;color:#2A3F55;line-height:1.85;">
-      فيديو YouTube طويل واحد ← يُقطع إلى 3 Reels قصيرة ← يُحوَّل إلى Carousel تعليمي على Instagram ←
-      يُختصر إلى TikTok 45 ثانية ← يُحوَّل إلى سؤال في Story ← يُجمع في نشرة بريدية.
-      <strong>جهد واحد، 6 قطع محتوى.</strong>
-    </p>
-  </div>
-</section>
-
-<!-- ================= 8. YOUTUBE ================= -->
-<section class="slide">
-  <div class="eyebrow">05 · المنصات</div>
-  <div class="plat-head">
-    <div class="plat-logo plat-yt">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-.9C16.4 4.1 12 4.1 12 4.1h-.1s-4.4 0-6.8.2c-.4.1-1.3.1-2 .9-.6.6-.8 2-.8 2S2.1 8.8 2.1 10.5v1.6c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.1 6.4.2 6.4.2s4.4 0 6.8-.2c.4-.1 1.3-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.9 14.2V8.6l5.6 2.8-5.6 2.8z"/></svg>
-    </div>
-    <div>
-      <h2>YouTube — محرك الثقة</h2>
-      <span>فيديوهات تعليمية طويلة (5–12 دقيقة) + Shorts</span>
-    </div>
-  </div>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;">أنواع المحتوى</h3>
-      <ul class="clean">
-        <li>شرح مسار كامل: من طلب الدراسة إلى الإقامة الدائمة</li>
-        <li>تحليل مصطلح: خطاب الإنصاف الإجرائي خطوة بخطوة</li>
-        <li>سياسة السودان العامة — نظرة شاملة للعائلات</li>
-        <li>الملفات المتوقفة: ماذا يعني ولماذا يحدث</li>
-        <li>لأرباب العمل: ما هو LMIA ولماذا يحتاجونه</li>
-        <li>Shorts: إجابات سريعة على أسئلة متكررة (60 ثانية)</li>
-      </ul>
-    </div>
-    <div class="panel panel-dark">
-      <h3 style="font-size:17px;margin-bottom:14px;">قواعد الإنتاج</h3>
-      <ul class="clean">
-        <li style="color:rgba(255,255,255,.85);">Samah تظهر على الكاميرا — الوجه يبني الثقة</li>
-        <li style="color:rgba(255,255,255,.85);">عنوان واضح يحتوي كلمة يبحث عنها الناس</li>
-        <li style="color:rgba(255,255,255,.85);">وصف الفيديو يحتوي RCIC #R709587</li>
-        <li style="color:rgba(255,255,255,.85);">لا ضمانات ولا مواعيد معالجة في أي فيديو</li>
-        <li style="color:rgba(255,255,255,.85);">الترجمة الإنجليزية + العربية عند الحاجة</li>
-        <li style="color:rgba(255,255,255,.85);">ثمبنيل ثابت في كل فيديو</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="grid g4">
-    <div class="metric"><div class="val">4</div><div class="lbl">فيديوهات طويلة شهريًا</div></div>
-    <div class="metric"><div class="val">12</div><div class="lbl">Shorts شهريًا</div></div>
-    <div class="metric"><div class="val gold">5–12</div><div class="lbl">دقيقة للفيديو الطويل</div></div>
-    <div class="metric"><div class="val gold">2×</div><div class="lbl">نشر أسبوعي</div></div>
-  </div>
-</section>
-
-<!-- ================= 9. INSTAGRAM ================= -->
-<section class="slide">
-  <div class="eyebrow">05 · المنصات</div>
-  <div class="plat-head">
-    <div class="plat-logo plat-ig">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
-    </div>
-    <div>
-      <h2>Instagram — القلب النابض</h2>
-      <span>Reels · Carousels · Stories · Q&A مباشر</span>
-    </div>
-  </div>
-
-  <div class="grid g3" style="margin-bottom:22px;">
-    <div class="card">
-      <h3>Reels</h3>
-      <p>3–5 أسبوعيًا. مقاطع 30–60 ثانية من فيديوهات YouTube، أو محتوى حصري. الأسرع في الوصول.</p>
-    </div>
-    <div class="card">
-      <h3>Carousels</h3>
-      <p>2 أسبوعيًا. شرح خطوة بخطوة، مقارنات، قوائم تحقق. الأعلى في الحفظ والمشاركة.</p>
-    </div>
-    <div class="card">
-      <h3>Stories</h3>
-      <p>يوميًا. أسئلة، تصويت، كواليس، تذكير بموعد Q&A. تبني علاقة يومية.</p>
-    </div>
-    <div class="card">
-      <h3>Live Q&A</h3>
-      <p>مرة شهريًا. Samah تجيب على أسئلة المجتمع مباشرة. ثقة عالية جدًا.</p>
-    </div>
-    <div class="card">
-      <h3>Highlights</h3>
-      <p>مصنّفة: الطلاب، العائلات، أرباب العمل، عن Samah، الأسئلة الشائعة.</p>
-    </div>
-    <div class="card">
-      <h3>Bio محسّن</h3>
-      <p>RCIC #R709587 + اللغات + رابط الحجز + واتساب. الوضوح أولًا.</p>
-    </div>
-  </div>
-
-  <div class="panel" style="background:#FFF9EC;border-color:rgba(201,162,39,.3);">
-    <h3 style="font-size:16px;color:var(--navy);margin-bottom:10px;">قاعدة ذهبية لإنستغرام</h3>
-    <p style="font-size:14px;color:#2A3F55;line-height:1.85;">
-      كل منشور تعليمي ينتهي بسؤال مفتوح لتشجيع التعليقات. التعليقات ترفع الوصول،
-      والوصول يجلب رسائل واتساب، والرسائل تجلب حجوزات الاستشارة.
-      <strong>لا نضع رابط الحجز في كل منشور — فقط في 10% من المحتوى التحويلي.</strong>
-    </p>
-  </div>
-</section>
-
-<!-- ================= 10. TIKTOK ================= -->
-<section class="slide">
-  <div class="eyebrow">05 · المنصات</div>
-  <div class="plat-head">
-    <div class="plat-logo plat-tt">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a5 5 0 0 1-1.1-3.3h-3.3v12.1a2.7 2.7 0 1 1-2.2-2.6V8.6a6 6 0 1 0 5.5 6V9a8.2 8.2 0 0 0 4.5 1.4V7.1a5 5 0 0 1-3.4-1.3z"/></svg>
-    </div>
-    <div>
-      <h2>TikTok — محرك الوصول</h2>
-      <span>فيديوهات 30–60 ثانية · 5–7 أسبوعيًا</span>
-    </div>
-  </div>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;">صيغ المحتوى الناجحة</h3>
-      <ul class="clean">
-        <li>«3 أخطاء تسبب رفض طلب الدراسة»</li>
-        <li>«ما معنى خطاب الإنصاف الإجرائي؟ في 40 ثانية»</li>
-        <li>«سؤال من متابع — جواب مباشر من مستشارة مرخصة»</li>
-        <li>«شيء لا يعرفه معظم الطلاب عن PGWP»</li>
-        <li>«كواليس: كيف تراجع Samah ملفًا معقدًا»</li>
-        <li>«الفرق بين Express Entry و PNP في 60 ثانية»</li>
-      </ul>
-    </div>
-    <div class="panel" style="background:#111;color:#fff;border:none;">
-      <h3 style="font-size:17px;color:#fff;margin-bottom:14px;">قواعد TikTok</h3>
-      <ul class="clean">
-        <li style="color:rgba(255,255,255,.85);">أول 3 ثوانٍ هي كل شيء — ابدأ بالسؤال أو المفاجأة</li>
-        <li style="color:rgba(255,255,255,.85);">نص على الشاشة + صوت واضح</li>
-        <li style="color:rgba(255,255,255,.85);">لا موسيقى صاخبة — المحتوى جدي</li>
-        <li style="color:rgba(255,255,255,.85);">الرد على تعليق بفيديو = أعلى تفاعل</li>
-        <li style="color:rgba(255,255,255,.85);">الهاشتاغ: #هجرة_كندا #دراسة_في_كندا #كندا</li>
-        <li style="color:rgba(255,255,255,.85);">لا وعود ولا ضمانات — نفس قواعد CICC</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="grid g4">
-    <div class="metric"><div class="val">5–7</div><div class="lbl">فيديوهات أسبوعيًا</div></div>
-    <div class="metric"><div class="val">30–60</div><div class="lbl">ثانية لكل فيديو</div></div>
-    <div class="metric"><div class="val gold">3 ثوانٍ</div><div class="lbl">لجذب الانتباه</div></div>
-    <div class="metric"><div class="val gold">2×</div><div class="lbl">ردود فيديو أسبوعيًا</div></div>
-  </div>
-</section>
-
-<!-- ================= 11. FUNNEL ================= -->
-<section class="slide">
-  <div class="eyebrow">06 · قمع التسويق</div>
-  <h2 class="slide-title">من المشاهدة إلى الاستشارة</h2>
-  <p class="slide-sub">كل مرحلة لها محتوى مختلف، وهدف مختلف، ومقياس مختلف.</p>
-
-  <div class="grid g4" style="margin-bottom:26px;">
-    <div class="card" style="border-top:3px solid var(--gold);">
-      <span class="num">المرحلة 01</span>
-      <h3>الوعي</h3>
-      <p>TikTok Reels، YouTube Shorts، منشورات مجتمعية، Google. الهدف: الوصول.</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--gold);">
-      <span class="num">المرحلة 02</span>
-      <h3>الاهتمام</h3>
-      <p>فيديوهات YouTube الطويلة، Carousels، دليل مجاني، ورشة تعريفية. الهدف: التفاعل.</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--teal);">
-      <span class="num">المرحلة 03</span>
-      <h3>التحويل</h3>
-      <p>حجز استشارة، رسالة واتساب، نموذج تقييم. الهدف: الحجز.</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--teal);">
-      <span class="num">المرحلة 04</span>
-      <h3>الولاء والإحالة</h3>
-      <p>متابعة بعد الاستشارة، شهادات معتمدة، إحالات. الهدف: التكرار.</p>
-    </div>
-  </div>
-
-  <div class="panel">
-    <h3 style="font-size:17px;color:var(--navy);margin-bottom:16px;">المغناطيسات المجانية (Lead Magnets)</h3>
-    <div class="grid g3">
-      <div style="padding:16px;background:#FBFAF7;border-radius:12px;border:1px solid var(--line);">
-        <strong style="color:var(--navy);font-size:14.5px;">قاموس مصطلحات الهجرة</strong>
-        <p style="font-size:13px;color:var(--muted);margin-top:6px;">PDF بسيط بالإنجليزية والعربية — يبني ثقة فورية.</p>
-      </div>
-      <div style="padding:16px;background:#FBFAF7;border-radius:12px;border:1px solid var(--line);">
-        <strong style="color:var(--navy);font-size:14.5px;">قائمة تحقق عامة</strong>
-        <p style="font-size:13px;color:var(--muted);margin-top:6px;">«كيف تتحقق من أن المستشار مرخص؟» — محتوى وقائي.</p>
-      </div>
-      <div style="padding:16px;background:#FBFAF7;border-radius:12px;border:1px solid var(--line);">
-        <strong style="color:var(--navy);font-size:14.5px;">ورشة شهرية مجانية</strong>
-        <p style="font-size:13px;color:var(--muted);margin-top:6px;">«من الدراسة إلى الإقامة الدائمة» أو «LMIA لأرباب العمل».</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 12. MONTH 1 ================= -->
-<section class="slide">
-  <div class="eyebrow">07 · خطة 90 يومًا</div>
-  <div class="month-banner">
-    <div class="month-badge">1</div>
-    <div>
-      <h2>الشهر الأول — التأسيس والإطلاق</h2>
-      <p>بناء الأساس، تجهيز الهوية، وإطلاق أول موجة محتوى</p>
-    </div>
-  </div>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:16px;color:var(--navy);margin-bottom:14px;">المهام التنفيذية</h3>
-      <ul class="clean">
-        <li>جمع الشعار، الصور، أرقام التواصل، وحسابات المنصات</li>
-        <li>كتابة Bio رسمي لكل منصة + RCIC #R709587</li>
-        <li>إنشاء تقويم محتوى 30 يومًا واعتماده من Samah</li>
-        <li>تصوير 10 فيديوهات قصيرة + 2 فيديو طويل مع Samah</li>
-        <li>تجهيز Google Business Profile (London, Ontario)</li>
-        <li>إعداد قالب Reels وCarousel موحّد بالهوية</li>
-        <li>كتابة ونشر أول 3 مقالات تعليمية على الموقع</li>
-      </ul>
-    </div>
-    <div class="panel panel-dark">
-      <h3 style="font-size:16px;margin-bottom:14px;">المحتوى المنشور</h3>
-      <ul class="clean">
-        <li style="color:rgba(255,255,255,.85);">سلسلة «مصطلحات الهجرة» — 4 حلقات</li>
-        <li style="color:rgba(255,255,255,.85);">فيديو تعريفي: من هي Samah؟</li>
-        <li style="color:rgba(255,255,255,.85);">«كيف تتحقق من مستشار مرخص؟»</li>
-        <li style="color:rgba(255,255,255,.85);">«الفرق بين Study Permit و PGWP»</li>
-        <li style="color:rgba(255,255,255,.85);">أول Q&A على Instagram Live</li>
-        <li style="color:rgba(255,255,255,.85);">إطلاق الدليل المجاني الأول</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;font-family:'Tajawal';">الأرقام المتوقعة — الشهر الأول</h3>
-  <div class="grid g4" style="margin-bottom:14px;">
-    <div class="metric"><div class="val">15K</div><div class="lbl">وصول Instagram</div></div>
-    <div class="metric"><div class="val">25K</div><div class="lbl">وصول TikTok</div></div>
-    <div class="metric"><div class="val">1.2K</div><div class="lbl">مشاهدات YouTube</div></div>
-    <div class="metric"><div class="val gold">+400</div><div class="lbl">متابع Instagram</div></div>
-    <div class="metric"><div class="val gold">+600</div><div class="lbl">متابع TikTok</div></div>
-    <div class="metric"><div class="val gold">+150</div><div class="lbl">مشترك YouTube</div></div>
-    <div class="metric"><div class="val">40</div><div class="lbl">رسالة واتساب</div></div>
-    <div class="metric"><div class="val">10</div><div class="lbl">استشارات محجوزة</div></div>
-  </div>
-  <p style="font-size:12.5px;color:var(--muted);text-align:center;">* أرقام تقديرية تعتمد على الالتزام الكامل بجدول النشر واعتماد Samah السريع للمحتوى.</p>
-</section>
-
-<!-- ================= 13. MONTH 2 ================= -->
-<section class="slide">
-  <div class="eyebrow">07 · خطة 90 يومًا</div>
-  <div class="month-banner">
-    <div class="month-badge">2</div>
-    <div>
-      <h2>الشهر الثاني — التوسع والتفاعل</h2>
-      <p>مضاعفة الإنتاج، إطلاق الورشة، والبدء في المحتوى المتخصص</p>
-    </div>
-  </div>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:16px;color:var(--navy);margin-bottom:14px;">المهام التنفيذية</h3>
-      <ul class="clean">
-        <li>تحليل أداء الشهر الأول وتعديل التقويم</li>
-        <li>إطلاق أول ورشة مجانية (ويبينار)</li>
-        <li>بدء سلسلة «الملفات المعقدة» — مجهولة الهوية</li>
-        <li>إطلاق محتوى B2B على LinkedIn</li>
-        <li>أول حملة إعلانية مدفوعة محدودة على TikTok</li>
-        <li>بناء قائمة بريدية للراغبين</li>
-        <li>نشر أول شهادات عملاء (بعد موافقة Samah)</li>
-      </ul>
-    </div>
-    <div class="panel panel-dark">
-      <h3 style="font-size:16px;margin-bottom:14px;">المحتوى المنشور</h3>
-      <ul class="clean">
-        <li style="color:rgba(255,255,255,.85);">«ما هو خطاب الإنصاف الإجرائي؟» — فيديو طويل</li>
-        <li style="color:rgba(255,255,255,.85);">«ملف متوقف: ماذا يعني؟» — Carousel</li>
-        <li style="color:rgba(255,255,255,.85);">«سياسة السودان العامة — نظرة عامة»</li>
-        <li style="color:rgba(255,255,255,.85);">«LMIA لأرباب العمل» — محتوى B2B</li>
-        <li style="color:rgba(255,255,255,.85);">سلسلة «سؤال من متابع» — أسبوعية</li>
-        <li style="color:rgba(255,255,255,.85);">Q&A مباشر ثانٍ + ورشة الطلاب</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;font-family:'Tajawal';">الأرقام المتوقعة — الشهر الثاني</h3>
-  <div class="grid g4" style="margin-bottom:14px;">
-    <div class="metric"><div class="val">35K</div><div class="lbl">وصول Instagram</div></div>
-    <div class="metric"><div class="val">80K</div><div class="lbl">وصول TikTok</div></div>
-    <div class="metric"><div class="val">4.5K</div><div class="lbl">مشاهدات YouTube</div></div>
-    <div class="metric"><div class="val gold">+900</div><div class="lbl">متابع Instagram</div></div>
-    <div class="metric"><div class="val gold">+1.8K</div><div class="lbl">متابع TikTok</div></div>
-    <div class="metric"><div class="val gold">+400</div><div class="lbl">مشترك YouTube</div></div>
-    <div class="metric"><div class="val">90</div><div class="lbl">رسالة واتساب</div></div>
-    <div class="metric"><div class="val">25</div><div class="lbl">استشارات محجوزة</div></div>
-  </div>
-  <p style="font-size:12.5px;color:var(--muted);text-align:center;">* النمو متوقع مع بدء الحملات المدفوعة والورشة المجانية التي تجذب جمهورًا جديدًا.</p>
-</section>
-
-<!-- ================= 14. MONTH 3 ================= -->
-<section class="slide">
-  <div class="eyebrow">07 · خطة 90 يومًا</div>
-  <div class="month-banner">
-    <div class="month-badge">3</div>
-    <div>
-      <h2>الشهر الثالث — التثبيت والتحسين</h2>
-      <p>تحويل الزخم إلى نتائج قابلة للقياس، وبناء نظام مستدام</p>
-    </div>
-  </div>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:16px;color:var(--navy);margin-bottom:14px;">المهام التنفيذية</h3>
-      <ul class="clean">
-        <li>تحليل شامل لـ 90 يومًا وتحديد أفضل المحتوى أداءً</li>
-        <li>إعادة نشر أفضل 5 قطع محتوى بصيغ محسّنة</li>
-        <li>توسيع الحملات المدفوعة على أفضل المنصات أداءً</li>
-        <li>تثبيت نظام إحالة للعملاء الحاليين</li>
-        <li>بناء مكتبة محتوى دائمة (Evergreen Library)</li>
-        <li>وضع خطة الربع القادم بناءً على الأرقام</li>
-        <li>مراجعة الامتثال الكاملة مع Samah</li>
-      </ul>
-    </div>
-    <div class="panel panel-dark">
-      <h3 style="font-size:16px;margin-bottom:14px;">المحتوى المنشور</h3>
-      <ul class="clean">
-        <li style="color:rgba(255,255,255,.85);">سلسلة «من الدراسة إلى الإقامة» — 4 أجزاء</li>
-        <li style="color:rgba(255,255,255,.85);">«إعادة النظر: متى تكون ممكنة؟»</li>
-        <li style="color:rgba(255,255,255,.85);">«Super Visa للوالدين» — Carousel مفصل</li>
-        <li style="color:rgba(255,255,255,.85);">قصص نجاح مجهولة الهوية (بموافقة)</li>
-        <li style="color:rgba(255,255,255,.85);">ورشة ثانية: «أرباب العمل والتوظيف الأجنبي»</li>
-        <li style="color:rgba(255,255,255,.85);">Q&A مباشر ثالث + ملخص الربع</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;font-family:'Tajawal';">الأرقام المتوقعة — الشهر الثالث</h3>
-  <div class="grid g4" style="margin-bottom:14px;">
-    <div class="metric"><div class="val">60K</div><div class="lbl">وصول Instagram</div></div>
-    <div class="metric"><div class="val">180K</div><div class="lbl">وصول TikTok</div></div>
-    <div class="metric"><div class="val">10K</div><div class="lbl">مشاهدات YouTube</div></div>
-    <div class="metric"><div class="val gold">+1.5K</div><div class="lbl">متابع Instagram</div></div>
-    <div class="metric"><div class="val gold">+3.5K</div><div class="lbl">متابع TikTok</div></div>
-    <div class="metric"><div class="val gold">+800</div><div class="lbl">مشترك YouTube</div></div>
-    <div class="metric"><div class="val">160</div><div class="lbl">رسالة واتساب</div></div>
-    <div class="metric"><div class="val">45</div><div class="lbl">استشارات محجوزة</div></div>
-  </div>
-  <p style="font-size:12.5px;color:var(--muted);text-align:center;">* الأرقام التراكمية للربع: ~400K وصول، +7K متابع، ~80 استشارة محجوزة.</p>
-</section>
-
-<!-- ================= 15. NUMBERS SUMMARY ================= -->
-<section class="slide">
-  <div class="eyebrow">07 · خطة 90 يومًا</div>
-  <h2 class="slide-title">ملخص الأرقام المتوقعة</h2>
-  <p class="slide-sub">نظرة شاملة على مسار النمو خلال الربع الأول — من التأسيس إلى التوسع.</p>
-
-  <table style="margin-bottom:24px;">
-    <thead>
-      <tr>
-        <th>المؤشر</th>
-        <th>الشهر 1</th>
-        <th>الشهر 2</th>
-        <th>الشهر 3</th>
-        <th>الإجمالي</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>وصول Instagram</strong></td><td>15,000</td><td>35,000</td><td>60,000</td><td><strong>110,000</strong></td></tr>
-      <tr><td><strong>وصول TikTok</strong></td><td>25,000</td><td>80,000</td><td>180,000</td><td><strong>285,000</strong></td></tr>
-      <tr><td><strong>مشاهدات YouTube</strong></td><td>1,200</td><td>4,500</td><td>10,000</td><td><strong>15,700</strong></td></tr>
-      <tr><td><strong>متابعو Instagram</strong></td><td>+400</td><td>+900</td><td>+1,500</td><td><strong>+2,800</strong></td></tr>
-      <tr><td><strong>متابعو TikTok</strong></td><td>+600</td><td>+1,800</td><td>+3,500</td><td><strong>+5,900</strong></td></tr>
-      <tr><td><strong>مشتركو YouTube</strong></td><td>+150</td><td>+400</td><td>+800</td><td><strong>+1,350</strong></td></tr>
-      <tr><td><strong>رسائل واتساب</strong></td><td>40</td><td>90</td><td>160</td><td><strong>290</strong></td></tr>
-      <tr><td><strong>استشارات محجوزة</strong></td><td>10</td><td>25</td><td>45</td><td><strong>80</strong></td></tr>
-    </tbody>
-  </table>
-
-  <div class="grid g4">
-    <div class="metric"><div class="val">~400K</div><div class="lbl">إجمالي الوصول التراكمي</div></div>
-    <div class="metric"><div class="val gold">+10K</div><div class="lbl">إجمالي المتابعين الجدد</div></div>
-    <div class="metric"><div class="val">290</div><div class="lbl">رسالة واتساب</div></div>
-    <div class="metric"><div class="val gold">80</div><div class="lbl">استشارة محجوزة</div></div>
-  </div>
-
-  <div class="panel" style="margin-top:24px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
-    <p style="font-size:13.5px;color:#2A3F55;line-height:1.85;">
-      <strong>ملاحظة مهمة:</strong> هذه أرقام تقديرية مبنية على الالتزام الكامل بجدول النشر، جودة المحتوى،
-      سرعة اعتماد Samah، وبدء الحملات المدفوعة في الشهر الثاني. الأداء الفعلي يعتمد على تفاعل الجمهور
-      وعوامل المنصات الخوارزمية. سنراجع الأرقام أسبوعيًا ونعدّل الخطة حسب النتائج الفعلية.
-    </p>
-  </div>
-</section>
-
-<!-- ================= 16. TEAM ================= -->
-<section class="slide">
-  <div class="eyebrow">08 · فريق العمل</div>
-  <h2 class="slide-title">من يفعل ماذا؟</h2>
-  <p class="slide-sub">توزيع واضح للمسؤوليات، مع تحديد ما نحتاجه من Samah بالضبط.</p>
-
-  <div class="grid g2" style="margin-bottom:22px;">
-    <div class="panel">
-      <h3 style="font-size:17px;color:var(--navy);margin-bottom:14px;">فريق التسويق</h3>
-      <table style="font-size:13px;">
-        <tbody>
-          <tr><td><strong>مدير الحساب</strong></td><td>التواصل مع Samah، اعتماد المحتوى، التقارير</td></tr>
-          <tr><td><strong>كاتب محتوى</strong></td><td>نصوص الفيديو، Carousels، المقالات</td></tr>
-          <tr><td><strong>مونتير فيديو</strong></td><td>تحرير YouTube وReels وTikTok</td></tr>
-          <tr><td><strong>مصمم جرافيك</strong></td><td>القوالب، الصور المصغرة، الهوية البصرية</td></tr>
-          <tr><td><strong>مدير منصات</strong></td><td>الجدولة، النشر، الردود، التفاعل</td></tr>
-          <tr><td><strong>محلل أداء</strong></td><td>تتبع الأرقام، التقارير الأسبوعية</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="panel panel-dark">
-      <h3 style="font-size:17px;margin-bottom:14px;">ما نحتاجه من Samah</h3>
-      <ul class="clean">
-        <li style="color:rgba(255,255,255,.85);">اعتماد كل منشور وإعلان وصفحة قبل النشر</li>
-        <li style="color:rgba(255,255,255,.85);">مراجعة كل نص عربي قبل نشره</li>
-        <li style="color:rgba(255,255,255,.85);">تسجيل الفيديوهات (يوم تصوير شهري)</li>
-        <li style="color:rgba(255,255,255,.85);">تأكيد أي معلومة عن الرسوم أو المواعيد أو القوانين</li>
-        <li style="color:rgba(255,255,255,.85);">الموافقة على الشهادات وقصص العملاء</li>
-        <li style="color:rgba(255,255,255,.85);">حضور Q&A الشهري المباشر</li>
-        <li style="color:rgba(255,255,255,.85);">الإجابة على الأسئلة الفنية المعقدة</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="panel" style="border-inline-start:4px solid var(--gold);">
-    <h3 style="font-size:16px;color:var(--navy);margin-bottom:10px;">إيقاع العمل الأسبوعي</h3>
-    <p style="font-size:14px;color:#2A3F55;line-height:1.85;">
-      <strong>الأحد:</strong> اجتماع تخطيط أسبوعي (30 دقيقة) ·
-      <strong>الاثنين–الثلاثاء:</strong> إنتاج وتحرير ·
-      <strong>الأربعاء:</strong> إرسال المحتوى لاعتماد Samah ·
-      <strong>الخميس:</strong> جدولة ونشر ·
-      <strong>الجمعة:</strong> تحليل الأداء وتقرير أسبوعي.
-    </p>
-  </div>
-</section>
-
-<!-- ================= 17. KPIs ================= -->
-<section class="slide">
-  <div class="eyebrow">09 · القياس</div>
-  <h2 class="slide-title">كيف نقيس النجاح؟</h2>
-  <p class="slide-sub">لا نتابع الإعجابات فقط — نتابع ما يهم: الوصول، الرسائل، والحجوزات.</p>
-
-  <div class="grid g3" style="margin-bottom:24px;">
-    <div class="card">
-      <h3>مؤشرات الوعي</h3>
-      <ul class="clean" style="margin-top:10px;">
-        <li>الوصول والظهور</li>
-        <li>عدد المتابعين الجدد</li>
-        <li>مشاهدات الفيديو</li>
-        <li>نسبة المشاهدة الكاملة</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>مؤشرات التفاعل</h3>
-      <ul class="clean" style="margin-top:10px;">
-        <li>الحفظ والمشاركة</li>
-        <li>التعليقات والرسائل المباشرة</li>
-        <li>نقرات الرابط في البايو</li>
-        <li>معدل التفاعل لكل منشور</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>مؤشرات التحويل</h3>
-      <ul class="clean" style="margin-top:10px;">
-        <li>عدد رسائل واتساب</li>
-        <li>عدد حجوزات الاستشارة</li>
-        <li>نسبة الحضور للاستشارة</li>
-        <li>تكلفة العميل المحتمل</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>مؤشرات الأعمال</h3>
-      <ul class="clean" style="margin-top:10px;">
-        <li>عدد العملاء الجدد</li>
-        <li>عدد الإحالات</li>
-        <li>مصدر كل عميل جديد</li>
-        <li>معدل التحويل من استشارة إلى عميل</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>مؤشرات المجتمع</h3>
-      <ul class="clean" style="margin-top:10px;">
-        <li>تفاعل المجتمع العربي والسوداني</li>
-        <li>مشاركة المحتوى من الحسابات المجتمعية</li>
-        <li>حضور الفعاليات والورش</li>
-        <li>أسئلة متكررة جديدة</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>مؤشرات الجودة</h3>
-      <ul class="clean" style="margin-top:10px;">
-        <li>نسبة اعتماد Samah من أول مرة</li>
-        <li>سرعة النشر بعد الاعتماد</li>
-        <li>عدد التعديلات لكل قطعة محتوى</li>
-        <li>الالتزام بالجدول</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="panel panel-dark">
-    <h3 style="font-size:16px;margin-bottom:12px;">التقارير</h3>
-    <p style="font-size:14px;color:rgba(255,255,255,.78);line-height:1.85;">
-      تقرير أسبوعي مختصر (صفحة واحدة) + تقرير شهري مفصل + مراجعة ربع سنوية شاملة.
-      كل تقرير يبدأ بالأرقام، ثم التحليل، ثم التوصيات — وليس العكس.
-    </p>
-  </div>
-</section>
-
-<!-- ================= 18. COMPLIANCE ================= -->
-<section class="slide">
-  <div class="eyebrow">10 · الامتثال</div>
-  <h2 class="slide-title">قواعد CICC — غير قابلة للتفاوض</h2>
-  <p class="slide-sub">Samah منظمة من CICC، وكل تسويق يجب أن يلتزم بمدونة السلوك المهني. هذه قواعد عامة، وSamah تعتمد كل منشور قبل النشر.</p>
-
-  <div class="grid g2">
-    <div class="panel" style="border-inline-start:4px solid #C0392B;">
-      <h3 style="font-size:16px;color:#C0392B;margin-bottom:14px;">✕ ممنوع تمامًا</h3>
-      <ul class="clean">
-        <li>الضمان أو الإيحاء بالموافقة أو نتيجة أو جدول زمني</li>
-        <li>المبالغات مثل «الأفضل» أو «رقم واحد»</li>
-        <li>استخدام «سريع» أو «فعّال» كوعد بالسرعة أو النجاح</li>
-        <li>استخدام لقب لا تملكه Samah</li>
-        <li>نشر رسوم أو مواعيد معالجة أو قواعد برامج دون تأكيدها</li>
-        <li>أسماء عملاء أو أرقام ملفات أو تفاصيل يمكن التعرف عليها</li>
-        <li>وصف أعضاء الفريق كمستشارين</li>
-        <li>ذكر أسماء المنظمات الشريكة في التسويق العام</li>
-      </ul>
-    </div>
-    <div class="panel" style="border-inline-start:4px solid var(--teal);">
-      <h3 style="font-size:16px;color:var(--teal);margin-bottom:14px;">✓ مطلوب دائمًا</h3>
-      <ul class="clean">
-        <li>استخدام «Regulated Canadian Immigration Consultant (RCIC)» مع رقم R709587</li>
-        <li>موافقة Samah على كل منشور وإعلان وصفحة قبل النشر</li>
-        <li>مراجعة Samah لكل نص عربي قبل نشره</li>
-        <li>الدقة والحداثة — لا معلومات قديمة</li>
-        <li>حماية سرية العميل في كل المحتوى</li>
-        <li>موافقة Samah على أي شهادة أو قصة عميل</li>
-        <li>وصف الفريق بأدوارهم الحقيقية فقط</li>
-        <li>ترجمة احترافية واعتماد لأي محتوى فرنسي</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="panel" style="margin-top:22px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
-    <h3 style="font-size:16px;color:var(--navy);margin-bottom:10px;">قائمة المراجعة قبل كل نشر</h3>
-    <div class="grid g3" style="gap:10px;">
-      <div style="font-size:13.5px;color:#2A3F55;">☐ موافقة Samah</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ لا ضمانات ولا مبالغات</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ RCIC #R709587 مذكور</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ لا رسوم أو مواعيد غير مؤكدة</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ لا تفاصيل عملاء</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ وصف الفريق دقيق</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ لا أسماء شركاء</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ الفرنسية مترجمة ومعتمدة</div>
-      <div style="font-size:13.5px;color:#2A3F55;">☐ النبرة دافئة وواضحة</div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 19. NEXT STEPS ================= -->
-<section class="slide cover" style="justify-content:center;">
-  <div class="cover-inner" style="max-width:900px;">
-    <div class="badge-license">
-      <span class="dot"></span>
-      جاهزون للانطلاق
-    </div>
-    <h1 style="margin-bottom:26px;">
-      الخطوات <span class="accent">التالية</span>
-    </h1>
-    <p class="lead" style="margin-bottom:34px;">
-      خمس خطوات واضحة للانتقال من الخطة إلى التنفيذ خلال أول 7 أيام.
-    </p>
-
-    <div class="grid g2" style="gap:14px;margin-bottom:34px;">
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px;">
-        <div style="color:var(--gold);font-family:'Tajawal';font-weight:800;font-size:13px;margin-bottom:6px;">الخطوة 1</div>
-        <div style="color:#fff;font-size:14.5px;">اجتماع انطلاق مع Samah (60 دقيقة) — جمع الأصول والوصول للحسابات</div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px;">
-        <div style="color:var(--gold);font-family:'Tajawal';font-weight:800;font-size:13px;margin-bottom:6px;">الخطوة 2</div>
-        <div style="color:#fff;font-size:14.5px;">تسليم تقويم محتوى 30 يومًا كاملًا لاعتماد Samah</div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px;">
-        <div style="color:var(--gold);font-family:'Tajawal';font-weight:800;font-size:13px;margin-bottom:6px;">الخطوة 3</div>
-        <div style="color:#fff;font-size:14.5px;">يوم تصوير أول — 10 فيديوهات قصيرة + 2 طويل</div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px;">
-        <div style="color:var(--gold);font-family:'Tajawal';font-weight:800;font-size:13px;margin-bottom:6px;">الخطوة 4</div>
-        <div style="color:#fff;font-size:14.5px;">تجهيز الحسابات: Bio، Highlights، Google Business Profile</div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px;">
-        <div style="color:var(--gold);font-family:'Tajawal';font-weight:800;font-size:13px;margin-bottom:6px;">الخطوة 5</div>
-        <div style="color:#fff;font-size:14.5px;">بدء النشر وبدء التقرير الأسبوعي</div>
-      </div>
-      <div style="background:linear-gradient(135deg,rgba(201,162,39,.22),rgba(201,162,39,.08));border:1px solid rgba(201,162,39,.4);border-radius:14px;padding:18px;">
-        <div style="color:var(--gold);font-family:'Tajawal';font-weight:800;font-size:13px;margin-bottom:6px;">النتيجة</div>
-        <div style="color:#fff;font-size:14.5px;">انطلاق فعلي خلال 7 أيام من الاعتماد</div>
-      </div>
-    </div>
-
-    <div style="border-inline-start:3px solid var(--gold);padding-inline-start:22px;font-family:'Tajawal';font-size:clamp(16px,1.8vw,22px);font-weight:500;line-height:1.7;color:#fff;">
-      «هنا لن تتوه، هنا ستفهم خطوتك، وهنا سيتعامل معك إنسان محترف.»
-    </div>
-  </div>
-</section>
-
-</div>
-
 <!-- ============ NAV ============ -->
 <nav class="nav">
-  <button id="next" aria-label="التالي">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-  </button>
-  <span class="counter" id="counter">1 / 19</span>
-  <button id="prev" aria-label="السابق">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-  </button>
+  <div class="nav-inner">
+    <a href="#overview" class="brand" data-page="overview">
+      <div class="brand-mark">SA</div>
+      <div class="brand-text">
+        <b>Samah Alim</b>
+        <span>RCIC #R709587</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#overview" data-page="overview">نظرة عامة</a>
+      <a href="#strategy" data-page="strategy">الاستراتيجية</a>
+      <a href="#tiktok" data-page="tiktok">TikTok</a>
+      <a href="#instagram" data-page="instagram">Instagram</a>
+      <a href="#youtube" data-page="youtube">YouTube</a>
+      <a href="#plan" data-page="plan">خطة 90 يومًا</a>
+      <a href="#team" data-page="team">الفريق والامتثال</a>
+    </div>
+  </div>
 </nav>
+
+<!-- ============================================================
+     PAGE 1 — OVERVIEW
+============================================================ -->
+<main id="overview" class="page active">
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow"><span class="dot"></span> استراتيجية المحتوى التسويقي</div>
+      <h1>
+        بناء الثقة عبر<br>
+        <span class="accent">محتوى تعليمي هادف</span>
+      </h1>
+      <p class="lead">
+        خطة محتوى متكاملة لـ Samah Alim Immigration Services على ثلاث منصات:
+        TikTok و Instagram و YouTube. الهدف: تعريف الجمهور المستهدف بنا، بناء الثقة،
+        وتحويل المتابعين إلى عملاء — مع الالتزام الكامل بمعايير CICC.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">من نحن</div>
+      <h2 class="section-title">نظرة على الشركة</h2>
+      <p class="section-sub">
+        مستشارة هجرة كندية مرخصة تقود كل ملف بنفسها، تخدم بالإنجليزية والعربية السودانية،
+        وتتخصص في الملفات المعقدة.
+      </p>
+
+      <div class="grid g2" style="margin-bottom:24px;">
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:18px;color:var(--navy);margin-bottom:14px;">البيانات الأساسية</h3>
+          <ul class="clean">
+            <li><strong>الاسم:</strong> Samah Alim Immigration Services</li>
+            <li><strong>المستشارة:</strong> Samah Yahia Alim — RCIC #R709587</li>
+            <li><strong>الترخيص:</strong> CICC منذ 2021</li>
+            <li><strong>الموقع:</strong> London, Ontario</li>
+            <li><strong>الخدمة:</strong> أونلاين — داخل كندا وخارجها</li>
+            <li><strong>اللغات:</strong> الإنجليزية والعربية السودانية</li>
+          </ul>
+        </div>
+        <div class="panel panel-dark">
+          <h3 style="font-family:'Tajawal';font-size:18px;margin-bottom:14px;">نقاط القوة</h3>
+          <ul class="clean">
+            <li>خدمة شخصية — Samah تراجع كل ملف بنفسها</li>
+            <li>خبرة +15 سنة في الإدارة والموارد البشرية</li>
+            <li>تخصص في الرفض وإعادة النظر والملفات المتوقفة</li>
+            <li>جذور مجتمعية سودانية وعمل advocacy</li>
+            <li>عملية واضحة: تقييم ← استراتيجية ← تقديم ← متابعة</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote">
+        «لا نبيع وعودًا — نبيع الفهم والوضوح والاهتمام الشخصي بكل ملف.»
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">لماذا هذا المحتوى؟</div>
+      <h2 class="section-title">فلسفة التسويق</h2>
+      <p class="section-sub">
+        الجمهور يعاني من كثرة الوعود. التميز الحقيقي ليس في الإعلان، بل في التعليم.
+      </p>
+
+      <div class="grid g3">
+        <div class="card">
+          <span class="tag">المبدأ 01</span>
+          <h3>علّم، لا تبِع</h3>
+          <p>كل قطعة محتوى تُعلّم شيئًا حقيقيًا. الجمهور يشعر أنك تعطيه قيمة قبل أن تطلب منه شيئًا.</p>
+        </div>
+        <div class="card">
+          <span class="tag">المبدأ 02</span>
+          <h3>الصدق يبني الثقة</h3>
+          <p>لا ضمانات ولا مبالغات. حين نقول «النتيجة تعتمد على حالتك» — هذا ما يجعل الناس يثقون بنا.</p>
+        </div>
+        <div class="card">
+          <span class="tag">المبدأ 03</span>
+          <h3>الوضوح هو الخدمة</h3>
+          <p>شرح مصطلح معقد بلغة بسيطة هو خدمة حقيقية يقدمها المحتوى قبل الاستشارة.</p>
+        </div>
+        <div class="card">
+          <span class="tag">المبدأ 04</span>
+          <h3>الوجه يبني العلاقة</h3>
+          <p>Samah تظهر في المحتوى. الوجه البشري يخلق ارتباطًا عاطفيًا لا يخلقه الشعار.</p>
+        </div>
+        <div class="card">
+          <span class="tag">المبدأ 05</span>
+          <h3>الاستمرارية قبل الكمال</h3>
+          <p>نشر منتظم بجودة جيدة يتفوق على نشر متقطع بجودة عالية.</p>
+        </div>
+        <div class="card">
+          <span class="tag">المبدأ 06</span>
+          <h3>الامتثال غير قابل للتفاوض</h3>
+          <p>كل منشور يمر على Samah قبل النشر. حماية الترخيص أهم من أي نتيجة تسويقية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE 2 — STRATEGY
+============================================================ -->
+<main id="strategy" class="page">
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow"><span class="dot"></span> الاستراتيجية الأساسية</div>
+      <h1>التموضع، الجمهور، <span class="accent">والرسائل</span></h1>
+      <p class="lead">
+        قبل أن ننتج أي محتوى، نحدد لمن نتحدث، وما الذي نميزنا، وما الرسالة التي يجب أن تصل.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">التموضع</div>
+      <h2 class="section-title">كيف نتميز في سوق مزدحم؟</h2>
+      <p class="section-sub">ستة محاور تميز Samah عن أي منافس آخر.</p>
+
+      <div class="grid g3">
+        <div class="pillar">
+          <h3>خدمة شخصية</h3>
+          <p>Samah تقود كل ملف بنفسها، مع فريق يدعم. لا وكالة كبيرة تفقد العميل في الزحام.</p>
+        </div>
+        <div class="pillar">
+          <h3>توجيه المسار</h3>
+          <p>تقييم الحالة، اختيار المسار الأنسب، وخطة خطوة بخطوة نحو الإقامة الدائمة والجنسية.</p>
+        </div>
+        <div class="pillar">
+          <h3>فهم مجتمعي</h3>
+          <p>جزء من المجتمع السوداني الكندي، تعمل بالعربية والإنجليزية، وتفهم السياق الثقافي.</p>
+        </div>
+        <div class="pillar">
+          <h3>الملفات المعقدة</h3>
+          <p>الرفض، إعادة النظر، خطابات الإنصاف الإجرائي، والملفات المتوقفة — روتين يومي.</p>
+        </div>
+        <div class="pillar">
+          <h3>خلفية إدارية و HR</h3>
+          <p>أكثر من 15 سنة في المستندات والسجلات والعمليات — دقة في كل تفصيلة.</p>
+        </div>
+        <div class="pillar">
+          <h3>عملية واضحة</h3>
+          <p>تقييم ← استراتيجية ← تحضير ← تقديم ← متابعة. كل خطوة معروفة للعميل.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">الجمهور</div>
+      <h2 class="section-title">لمن نتحدث؟</h2>
+      <p class="section-sub">جمهوران للنمو + جمهوران أساسيان. كل جمهور له رسالة مختلفة.</p>
+
+      <div class="grid g4">
+        <div class="card" style="border-top:3px solid var(--gold);">
+          <h3>🎓 الطلاب</h3>
+          <p>من كل المجتمعات، مع تركيز على الناطقين بالعربية والأفارقة. مسار: دراسة ← عمل ← إقامة دائمة.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--gold);">
+          <h3>💼 العمالة الماهرة</h3>
+          <p>في المجالات المطلوبة: الرعاية الصحية، الحرف، والتخصصات التقنية. Express Entry و PNP.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--teal);">
+          <h3>👨‍👩‍👧 العائلات السودانية</h3>
+          <p>داخل كندا وخارجها، بما في ذلك ملفات سياسة السودان، والرفض، وإعادة النظر.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--teal);">
+          <h3>🏢 أرباب العمل</h3>
+          <p>الشركات التي توظف عمالة أجنبية وتحتاج LMIA وامتثالًا نظاميًا واضحًا.</p>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:26px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
+        <h3 style="font-family:'Tajawal';font-size:16px;color:var(--navy);margin-bottom:10px;">ملاحظات مهمة</h3>
+        <ul class="clean">
+          <li>النبرة شاملة — الطلاب من دول ومجتمعات متعددة، والصور يجب أن تعكس ذلك</li>
+          <li>Samah لا تخدم بالفرنسية — أي محتوى فرنسي يُترجم ويُعتمد احترافيًا</li>
+          <li>لا نذكر المنظمات الشريكة بالاسم في التسويق العام</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الرسائل الأساسية</div>
+      <h2 class="section-title">ما الذي نقوله في كل محتوى؟</h2>
+      <p class="section-sub">خمس رسائل مساندة تظهر في كل قطعة محتوى بشكل أو بآخر.</p>
+
+      <div class="grid g2">
+        <div class="panel">
+          <ul class="clean">
+            <li><strong>«Samah تمسك ملفك بنفسها»</strong> — الخدمة الشخصية هي الميزة الأولى.</li>
+            <li><strong>«نشرح لك طريقك بوضوح»</strong> — لا غموض، لا مصطلحات مربكة.</li>
+            <li><strong>«النتيجة تعتمد على حالتك»</strong> — الصدق بدل الوعود.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <ul class="clean">
+            <li><strong>«نفهم مجتمعك ولغتك»</strong> — العربية السودانية والإنجليزية.</li>
+            <li><strong>«الملفات المعقدة ليست مشكلة»</strong> — الرفض، إعادة النظر، الملفات المتوقفة.</li>
+            <li><strong>«عملية واضحة من البداية للنهاية»</strong> — تعرف أين أنت بالضبط.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE 3 — TIKTOK
+============================================================ -->
+<main id="tiktok" class="page">
+
+  <header class="plat-hero tt">
+    <div class="container">
+      <div class="plat-badge">
+        <div class="plat-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#fff;"><path d="M16.6 5.8a5 5 0 0 1-1.1-3.3h-3.3v12.1a2.7 2.7 0 1 1-2.2-2.6V8.6a6 6 0 1 0 5.5 6V9a8.2 8.2 0 0 0 4.5 1.4V7.1a5 5 0 0 1-3.4-1.3z"/></svg>
+        </div>
+        <div style="color:rgba(255,255,255,.7);font-size:13px;font-weight:600;letter-spacing:.1em;">TIKTOK</div>
+      </div>
+      <h1>محرك الوصول والوعي</h1>
+      <p>
+        TikTok هي أسرع منصة للوصول لجمهور جديد. فيديوهات قصيرة 30–60 ثانية
+        تُعرّف الجمهور بنا، وتكسر الخوف من الاستشارة، وتبني الثقة بسرعة.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الأهداف على TikTok</div>
+      <h2 class="section-title">ماذا نريد تحقيقه؟</h2>
+
+      <div class="grid g4" style="margin-bottom:34px;">
+        <div class="metric"><div class="val">5–7</div><div class="lbl">فيديو أسبوعيًا</div></div>
+        <div class="metric"><div class="val gold">30–60</div><div class="lbl">ثانية للفيديو</div></div>
+        <div class="metric"><div class="val">3 ثوانٍ</div><div class="lbl">لجذب الانتباه</div></div>
+        <div class="metric"><div class="val gold">2×</div><div class="lbl">ردود فيديو أسبوعيًا</div></div>
+      </div>
+
+      <div class="grid g3">
+        <div class="pillar">
+          <h3>الوعي بالعلامة</h3>
+          <p>تعريف الجمهور العربي والأفريقي بوجود مستشارة مرخصة تتحدث لغتهم.</p>
+        </div>
+        <div class="pillar">
+          <h3>كسر الخوف</h3>
+          <p>كثيرون يخافون من الاستشارة. فيديوهات قصيرة تُظهر Samah كإنسانة ودودة.</p>
+        </div>
+        <div class="pillar">
+          <h3>الوصول للعمالة الماهرة</h3>
+          <p>فيديوهات موجهة لمن يبحث عن Express Entry وبرامج المقاطعات.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">أعمدة المحتوى</div>
+      <h2 class="section-title">خمسة أعمدة ثابتة على TikTok</h2>
+      <p class="section-sub">كل عمود يخدم هدفًا مختلفًا ويبني الثقة بطريقة مختلفة.</p>
+
+      <div class="grid g2">
+        <div class="pillar">
+          <h3>1. كسر الخرافات</h3>
+          <p>تصحيح معلومات خاطئة شائعة عن الهجرة. هذا النوع يحقق أعلى تفاعل لأن الناس يشاركونه.</p>
+          <ul>
+            <li>«3 أخطاء تسبب رفض طلب الدراسة»</li>
+            <li>«معلومة خاطئة يعتقدها معظم الناس عن الـ PR»</li>
+            <li>«لا تحتاج محامي لكل شيء — إليك لماذا»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>2. شرح مصطلحات</h3>
+          <p>مصطلح واحد في 40 ثانية. يبني السلطة المعرفية ويجعلنا مرجعًا.</p>
+          <ul>
+            <li>«ما معنى خطاب الإنصاف الإجرائي؟»</li>
+            <li>«الفرق بين Study Permit و PGWP»</li>
+            <li>«ما هو LMIA في 45 ثانية؟»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>3. الرد على سؤال متابع</h3>
+          <p>سؤال حقيقي من تعليق أو واتساب ← جواب مباشر من Samah. هذا النوع يبني ثقة عالية.</p>
+          <ul>
+            <li>«سألني متابع: هل أستطيع تغيير المسار بعد الرفض؟»</li>
+            <li>«وصلني هذا السؤال 20 مرة هذا الأسبوع...»</li>
+            <li>«الجواب الصادق على سؤال صعب»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>4. خلف الكواليس</h3>
+          <p>لحظات إنسانية تُظهر أن خلف كل ملف شخصًا حقيقيًا يهتم.</p>
+          <ul>
+            <li>«كيف أراجع ملفًا معقدًا؟»</li>
+            <li>«يوم في مكتبي»</li>
+            <li>«أصعب ملف مر عليّ هذا الشهر»</li>
+          </ul>
+        </div>
+        <div class="pillar" style="grid-column:1/-1;">
+          <h3>5. قصص نجاح مجهولة الهوية</h3>
+          <p>بدون أسماء أو تفاصيل يمكن التعرف عليها، وبموافقة Samah. تُظهر النتائج الحقيقية بشكل صادق.</p>
+          <ul>
+            <li>«عميل رُفض مرتين — إليك ما فعلناه» (بدون تفاصيل)</li>
+            <li>«ملف متوقف منذ سنة — ماذا حدث؟»</li>
+            <li>«عائلة سودانية وصلت — القصة العامة»</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">أفكار جاهزة</div>
+      <h2 class="section-title">10 فيديوهات جاهزة للتصوير</h2>
+      <p class="section-sub">كل فكرة مع الهوك (أول 3 ثوانٍ) والهدف.</p>
+
+      <div class="grid g2">
+        <div class="idea">
+          <div class="num">01</div>
+          <div class="body">
+            <h4>«3 أخطاء تسبب رفض طلب الدراسة»</h4>
+            <p>هوك: «إذا كنت تقدم طلب دراسة، لا تفعل هذه الثلاثة.»</p>
+            <div class="meta"><span>كسر الخرافات</span><span>50 ثانية</span><span>الطلاب</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">02</div>
+          <div class="body">
+            <h4>«ما معنى خطاب الإنصاف الإجرائي؟»</h4>
+            <p>هوك: «وصلتك رسالة من IRCC ولا تفهم معناها؟ إليك الجواب.»</p>
+            <div class="meta"><span>شرح مصطلح</span><span>40 ثانية</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">03</div>
+          <div class="body">
+            <h4>«لا نعدك بالموافقة — وهذا سبب ثقتك بنا»</h4>
+            <p>هوك: «كل مستشار يعدك بالموافقة... نحن لا نفعل.»</p>
+            <div class="meta"><span>ثقة</span><span>35 ثانية</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">04</div>
+          <div class="body">
+            <h4>«الفرق بين Express Entry و PNP»</h4>
+            <p>هوك: «ضائع بين المسارات؟ هذا الفرق في 45 ثانية.»</p>
+            <div class="meta"><span>شرح مسار</span><span>45 ثانية</span><span>عمالة ماهرة</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">05</div>
+          <div class="body">
+            <h4>«سؤال من متابع: هل أستطيع التقديم بعد الرفض؟»</h4>
+            <p>هوك: «سؤال وصلني 30 مرة هذا الأسبوع.»</p>
+            <div class="meta"><span>رد على سؤال</span><span>50 ثانية</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">06</div>
+          <div class="body">
+            <h4>«يوم في مكتبي كمستشارة هجرة»</h4>
+            <p>هوك: «تسألونني دائمًا ماذا أفعل طوال اليوم...»</p>
+            <div class="meta"><span>خلف الكواليس</span><span>60 ثانية</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">07</div>
+          <div class="body">
+            <h4>«سياسة السودان العامة — نظرة سريعة»</h4>
+            <p>هوك: «للعائلات السودانية: هذا ما تحتاج معرفته.»</p>
+            <div class="meta"><span>مسار</span><span>55 ثانية</span><span>السودانيون</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">08</div>
+          <div class="body">
+            <h4>«كيف تتحقق أن المستشار مرخص؟»</h4>
+            <p>هوك: «لا تسلّم ملفك لأي شخص قبل هذا التحقق.»</p>
+            <div class="meta"><span>توعية</span><span>40 ثانية</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">09</div>
+          <div class="body">
+            <h4>«ما هو Super Visa؟ للوالدين والأجداد»</h4>
+            <p>هوك: «تريد والديك يزورانك في كندا لفترة طويلة؟»</p>
+            <div class="meta"><span>شرح مصطلح</span><span>45 ثانية</span><span>العائلات</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">10</div>
+          <div class="body">
+            <h4>«لماذا لا أعطي مواعيد معالجة؟»</h4>
+            <p>هوك: «كل مرة أسأل عن المدة... هذا جوابي الصادق.»</p>
+            <div class="meta"><span>ثقة</span><span>35 ثانية</span><span>عام</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">قواعد الإنتاج</div>
+      <h2 class="section-title">كيف نصنع فيديو TikTok ناجح؟</h2>
+
+      <div class="grid g3">
+        <div class="card">
+          <h3>الهوك أول 3 ثوانٍ</h3>
+          <p>ابدأ بسؤال، مفاجأة، أو جملة توقف التمرير. لا مقدمات، لا ترحيب.</p>
+        </div>
+        <div class="card">
+          <h3>نص على الشاشة</h3>
+          <p>معظم المشاهدين بدون صوت. النص يوصّل الرسالة حتى بدون سماع.</p>
+        </div>
+        <div class="card">
+          <h3>وجه Samah يظهر</h3>
+          <p>الوجه البشري يرفع الثقة والتفاعل. لا فيديوهات بدون شخص حقيقي.</p>
+        </div>
+        <div class="card">
+          <h3>موسيقى هادئة</h3>
+          <p>المحتوى جدي. لا موسيقى صاخبة أو تريندات غير مناسبة.</p>
+        </div>
+        <div class="card">
+          <h3>دعوة لطيفة للنقاش</h3>
+          <p>«هل مررت بهذا؟ اكتب لي في التعليقات» — التعليقات ترفع الوصول.</p>
+        </div>
+        <div class="card">
+          <h3>هاشتاغات دقيقة</h3>
+          <p>#هجرة_كندا #دراسة_في_كندا #كندا #سودانيون_في_كندا — بدون مبالغة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE 4 — INSTAGRAM
+============================================================ -->
+<main id="instagram" class="page">
+
+  <header class="plat-hero ig">
+    <div class="container">
+      <div class="plat-badge">
+        <div class="plat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" style="color:#fff;"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="#fff" stroke="none"/></svg>
+        </div>
+        <div style="color:rgba(255,255,255,.9);font-size:13px;font-weight:700;letter-spacing:.1em;">INSTAGRAM</div>
+      </div>
+      <h1>القلب النابض للمجتمع</h1>
+      <p>
+        Instagram هي المنصة الأساسية للتفاعل اليومي وبناء العلاقة مع المتابعين.
+        هنا ننشر بانتظام، نتفاعل، ونبني مجتمعًا حول العلامة.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الأهداف على Instagram</div>
+      <h2 class="section-title">ماذا نريد تحقيقه؟</h2>
+
+      <div class="grid g4" style="margin-bottom:34px;">
+        <div class="metric"><div class="val">3–5</div><div class="lbl">Reels أسبوعيًا</div></div>
+        <div class="metric"><div class="val gold">2</div><div class="lbl">Carousels أسبوعيًا</div></div>
+        <div class="metric"><div class="val">يوميًا</div><div class="lbl">Stories تفاعلية</div></div>
+        <div class="metric"><div class="val gold">شهريًا</div><div class="lbl">Q&A مباشر</div></div>
+      </div>
+
+      <div class="grid g3">
+        <div class="pillar">
+          <h3>بناء المجتمع</h3>
+          <p>التفاعل اليومي عبر Stories والردود على التعليقات يبني علاقة حقيقية.</p>
+        </div>
+        <div class="pillar">
+          <h3>التعليم البصري</h3>
+          <p>Carousels تشرح خطوات ومقارنات بطريقة يسهل حفظها ومشاركتها.</p>
+        </div>
+        <div class="pillar">
+          <h3>الثقة المباشرة</h3>
+          <p>Q&A المباشر مع Samah يبني ثقة لا تحققها أي منصة أخرى.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">أعمدة المحتوى</div>
+      <h2 class="section-title">أربعة أعمدة ثابتة على Instagram</h2>
+      <p class="section-sub">كل عمود له صيغة مختلفة، وهدف مختلف، ومقياس مختلف.</p>
+
+      <div class="grid g2">
+        <div class="pillar">
+          <h3>1. Reels تعليمية</h3>
+          <p>مقاطع 30–60 ثانية مأخوذة من فيديوهات YouTube الطويلة أو محتوى حصري. الأسرع في الوصول.</p>
+          <ul>
+            <li>مقتطف من فيديو طويل: أهم 30 ثانية</li>
+            <li>سؤال متابع + جواب سريع</li>
+            <li>مصطلح واحد مشروح بصريًا</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>2. Carousels تعليمية</h3>
+          <p>5–8 شرائح تشرح خطوة بخطوة. الأعلى في الحفظ والمشاركة، ويُعاد نشره لاحقًا.</p>
+          <ul>
+            <li>«من الدراسة إلى الإقامة الدائمة: 6 خطوات»</li>
+            <li>«الفرق بين 5 أنواع تأشيرات»</li>
+            <li>«قائمة تحقق قبل تقديم طلب الدراسة»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>3. Stories تفاعلية</h3>
+          <p>يوميًا. تبني علاقة شخصية وتُبقي العلامة حاضرة في ذهن المتابع.</p>
+          <ul>
+            <li>استفتاء: «أي مسار تريد معرفة المزيد عنه؟»</li>
+            <li>سؤال مفتوح: «ما أكبر سؤال يقلقك؟»</li>
+            <li>خلف الكواليس: لحظة من مكتب Samah</li>
+            <li>تذكير بموعد Q&A القادم</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>4. Q&A مباشر شهري</h3>
+          <p>بث مباشر مع Samah مرة شهريًا. المتابعون يطرحون أسئلتهم، وSamah تجيب مباشرة.</p>
+          <ul>
+            <li>الإعلان عنه قبل أسبوع عبر Stories</li>
+            <li>جمع الأسئلة مسبقًا في صندوق أسئلة</li>
+            <li>حفظ البث في Highlights للرجوع إليه</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">أفكار جاهزة</div>
+      <h2 class="section-title">12 فكرة محتوى لـ Instagram</h2>
+      <p class="section-sub">موزعة على الأعمدة الأربعة.</p>
+
+      <div class="grid g2">
+        <div class="idea">
+          <div class="num">01</div>
+          <div class="body">
+            <h4>Reel: «سؤال من متابع — هل الرفض يعني النهاية؟»</h4>
+            <p>مقتطف من Q&A مباشر. 45 ثانية. ينتهي بسؤال للنقاش.</p>
+            <div class="meta"><span>Reel</span><span>رد على سؤال</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">02</div>
+          <div class="body">
+            <h4>Carousel: «6 خطوات من الدراسة إلى الإقامة الدائمة»</h4>
+            <p>7 شرائح: الغلاف + 5 خطوات + سؤال ختامي. الأعلى حفظًا.</p>
+            <div class="meta"><span>Carousel</span><span>مسار</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">03</div>
+          <div class="body">
+            <h4>Reel: «3 معلومات خاطئة عن الهجرة لكندا»</h4>
+            <p>مقارنة سريعة بين ما يعتقده الناس والحقيقة. 50 ثانية.</p>
+            <div class="meta"><span>Reel</span><span>كسر خرافات</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">04</div>
+          <div class="body">
+            <h4>Story: استفتاء «ما أكبر تحدي تواجهه في ملفك؟»</h4>
+            <p>استفتاء من 4 خيارات + سؤال مفتوح. يبني قائمة مواضيع لاحقة.</p>
+            <div class="meta"><span>Story</span><span>تفاعل</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">05</div>
+          <div class="body">
+            <h4>Carousel: «الفرق بين Study Permit و PGWP و PR»</h4>
+            <p>مقارنة بصرية واضحة في 5 شرائح. يُحفظ ويُشارك كثيرًا.</p>
+            <div class="meta"><span>Carousel</span><span>شرح مصطلح</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">06</div>
+          <div class="body">
+            <h4>Reel: «كواليس: كيف أراجع ملفًا معقدًا؟»</h4>
+            <p>لقطات من المكتب + تعليق صوتي من Samah. 55 ثانية.</p>
+            <div class="meta"><span>Reel</span><span>خلف الكواليس</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">07</div>
+          <div class="body">
+            <h4>Carousel: «خطاب الإنصاف الإجرائي — دليل مبسط»</h4>
+            <p>6 شرائح تشرح: ما هو، متى يصل، ماذا تفعل، ما لا تفعله.</p>
+            <div class="meta"><span>Carousel</span><span>شرح مصطلح</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">08</div>
+          <div class="body">
+            <h4>Story: صندوق أسئلة قبل Q&A المباشر</h4>
+            <p>«اسأل Samah أي شيء — سأجيب في البث المباشر.»</p>
+            <div class="meta"><span>Story</span><span>تجهيز Q&A</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">09</div>
+          <div class="body">
+            <h4>Reel: «لماذا لا أعطيك موعدًا لمعالجة ملفك؟»</h4>
+            <p>جواب صادق يبني ثقة. 35 ثانية. ينتهي بـ «هذا احترام لك».</p>
+            <div class="meta"><span>Reel</span><span>ثقة</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">10</div>
+          <div class="body">
+            <h4>Carousel: «4 مسارات للعمالة الماهرة»</h4>
+            <p>Express Entry، PNP، LMIA، CEC. مقارنة مبسطة في 6 شرائح.</p>
+            <div class="meta"><span>Carousel</span><span>عمالة ماهرة</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">11</div>
+          <div class="body">
+            <h4>Reel: «قصص نجاح — بدون أسماء، بدون تفاصيل»</h4>
+            <p>قصة عامة لملف معقد حل. تنتهي بـ «كل ملف له قصته».</p>
+            <div class="meta"><span>Reel</span><span>ثقة</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">12</div>
+          <div class="body">
+            <h4>Story: «يوم في حياة مستشارة هجرة»</h4>
+            <p>سلسلة 5–7 Stories على مدار اليوم. إنساني ويقرب.</p>
+            <div class="meta"><span>Story</span><span>خلف الكواليس</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">بنية الحساب</div>
+      <h2 class="section-title">كيف نُهيكل الملف الشخصي؟</h2>
+
+      <div class="grid g2">
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">Bio محسّن</h3>
+          <ul class="clean">
+            <li>الاسم: Samah Alim Immigration Services</li>
+            <li>السطر 1: RCIC #R709587 — مرخصة من CICC</li>
+            <li>السطر 2: تخدم بالإنجليزية والعربية السودانية</li>
+            <li>السطر 3: London, Ontario · أونلاين في كل كندا</li>
+            <li>الرابط: حجز استشارة + واتساب</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">Highlights مصنّفة</h3>
+          <ul class="clean">
+            <li>🎓 للطلاب — كل ما يخص الدراسة و PGWP</li>
+            <li>👨‍👩‍👧 للعائلات — الرعاية وسياسة السودان</li>
+            <li>💼 للعمالة الماهرة — Express Entry و PNP</li>
+            <li>🏢 لأرباب العمل — LMIA والتوظيف</li>
+            <li>❓ أسئلة شائعة — إجابات سريعة</li>
+            <li>👩‍💼 عن Samah — من هي وكيف تعمل</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:22px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
+        <h3 style="font-family:'Tajawal';font-size:16px;color:var(--navy);margin-bottom:10px;">قاعدة ذهبية لإنستغرام</h3>
+        <p style="font-size:14px;color:#2A3F55;line-height:1.85;">
+          كل منشور تعليمي ينتهي بسؤال مفتوح لتشجيع التعليقات. التعليقات ترفع الوصول،
+          والوصول يجلب رسائل واتساب، والرسائل تجلب حجوزات الاستشارة.
+          <strong>لا نضع رابط الحجز في كل منشور — فقط في 10% من المحتوى التحويلي.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE 5 — YOUTUBE
+============================================================ -->
+<main id="youtube" class="page">
+
+  <header class="plat-hero yt">
+    <div class="container">
+      <div class="plat-badge">
+        <div class="plat-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#fff;"><path d="M21.6 7.2s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-.9C16.4 4.1 12 4.1 12 4.1h-.1s-4.4 0-6.8.2c-.4.1-1.3.1-2 .9-.6.6-.8 2-.8 2S2.1 8.8 2.1 10.5v1.6c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.1 6.4.2 6.4.2s4.4 0 6.8-.2c.4-.1 1.3-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.9 14.2V8.6l5.6 2.8-5.6 2.8z"/></svg>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:13px;font-weight:700;letter-spacing:.1em;">YOUTUBE</div>
+      </div>
+      <h1>محرك الثقة والعمق</h1>
+      <p>
+        YouTube هي منصة المحتوى الطويل الذي يبني السلطة المعرفية والثقة العميقة.
+        هنا نشرح المسارات كاملة، نحلل المصطلحات، ونستضيف جلسات مطولة.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الأهداف على YouTube</div>
+      <h2 class="section-title">ماذا نريد تحقيقه؟</h2>
+
+      <div class="grid g4" style="margin-bottom:34px;">
+        <div class="metric"><div class="val">4</div><div class="lbl">فيديوهات طويلة شهريًا</div></div>
+        <div class="metric"><div class="val gold">12</div><div class="lbl">Shorts شهريًا</div></div>
+        <div class="metric"><div class="val">5–12</div><div class="lbl">دقيقة للفيديو الطويل</div></div>
+        <div class="metric"><div class="val gold">2×</div><div class="lbl">نشر أسبوعي</div></div>
+      </div>
+
+      <div class="grid g3">
+        <div class="pillar">
+          <h3>السلطة المعرفية</h3>
+          <p>فيديوهات طويلة تشرح المسارات بعمق. من يشاهدها يثق بخبرة Samah.</p>
+        </div>
+        <div class="pillar">
+          <h3>SEO طويل المدى</h3>
+          <p>محتوى YouTube يظهر في البحث سنوات. كل فيديو أصل دائم للعلامة.</p>
+        </div>
+        <div class="pillar">
+          <h3>مكتبة محتوى</h3>
+          <p>كل فيديو طويل يُقطع إلى Reels و Shorts و Carousels — جهد واحد، محتوى كثير.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">أعمدة المحتوى</div>
+      <h2 class="section-title">أربعة أعمدة ثابتة على YouTube</h2>
+
+      <div class="grid g2">
+        <div class="pillar">
+          <h3>1. شرح مسار كامل</h3>
+          <p>فيديو عميق 8–12 دقيقة يشرح مسارًا كاملًا خطوة بخطوة.</p>
+          <ul>
+            <li>«من طلب الدراسة إلى الإقامة الدائمة»</li>
+            <li>«Express Entry: دليل شامل للمبتدئين»</li>
+            <li>«سياسة السودان العامة — كل ما تحتاج معرفته»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>2. تحليل مصطلح</h3>
+          <p>مصطلح واحد مشروح بعمق: معناه، متى يظهر، وكيف تتعامل معه.</p>
+          <ul>
+            <li>«خطاب الإنصاف الإجرائي: ما هو وكيف ترد؟»</li>
+            <li>«LMIA: دليل أرباب العمل الكامل»</li>
+            <li>«إعادة النظر: متى تكون ممكنة؟»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>3. جلسات Q&A مطولة</h3>
+          <p>تسجيل Q&A المباشر من إنستغرام + أسئلة إضافية. 15–20 دقيقة.</p>
+          <ul>
+            <li>«أسئلتكم عن الدراسة في كندا — الجزء 1»</li>
+            <li>«أسئلة العائلات السودانية»</li>
+            <li>«أسئلة أرباب العمل عن التوظيف الأجنبي»</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>4. Shorts تعليمية</h3>
+          <p>مقتطفات 60 ثانية من الفيديوهات الطويلة، أو محتوى حصري سريع.</p>
+          <ul>
+            <li>«معلومة واحدة عن الـ PR»</li>
+            <li>«سؤال سريع — جواب سريع»</li>
+            <li>«مصطلح في 60 ثانية»</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">أفكار جاهزة</div>
+      <h2 class="section-title">10 أفكار لفيديوهات YouTube</h2>
+      <p class="section-sub">كل فكرة مع الجمهور المستهدف والمدة المتوقعة.</p>
+
+      <div class="grid g2">
+        <div class="idea">
+          <div class="num">01</div>
+          <div class="body">
+            <h4>«من طلب الدراسة إلى الإقامة الدائمة — الدليل الكامل»</h4>
+            <p>فيديو 12 دقيقة يشرح المسار كاملًا: الدراسة، PGWP، الخبرة، PR.</p>
+            <div class="meta"><span>10–12 دقيقة</span><span>الطلاب</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">02</div>
+          <div class="body">
+            <h4>«خطاب الإنصاف الإجرائي: ما هو وكيف ترد؟»</h4>
+            <p>شرح مفصل: متى يصل، ماذا يعني، الأخطاء الشائعة، وكيف نتعامل معه.</p>
+            <div class="meta"><span>8–10 دقائق</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">03</div>
+          <div class="body">
+            <h4>«سياسة السودان العامة — كل ما تحتاج معرفته»</h4>
+            <p>نظرة شاملة للعائلات السودانية: من ينطبق عليه، الخطوات، النقاط المهمة.</p>
+            <div class="meta"><span>10 دقائق</span><span>السودانيون</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">04</div>
+          <div class="body">
+            <h4>«Express Entry للمبتدئين — من الصفر»</h4>
+            <p>شرح CRS، السحوبات، الفئات، وكيف ترفع نقاطك. مع أمثلة عامة.</p>
+            <div class="meta"><span>10–12 دقيقة</span><span>عمالة ماهرة</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">05</div>
+          <div class="body">
+            <h4>«LMIA لأرباب العمل — دليل شامل»</h4>
+            <p>ما هو، متى يحتاجه صاحب العمل، الخطوات، والامتثال. محتوى B2B.</p>
+            <div class="meta"><span>8–10 دقائق</span><span>أرباب العمل</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">06</div>
+          <div class="body">
+            <h4>«ملف متوقف — ماذا يعني وماذا تفعل؟»</h4>
+            <p>تحليل الأسباب المحتملة، الخطوات العملية، ومتى تحتاج مستشارًا.</p>
+            <div class="meta"><span>7–8 دقائق</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">07</div>
+          <div class="body">
+            <h4>«أسئلتكم عن الدراسة في كندا — الجزء 1»</h4>
+            <p>تسجيل Q&A مباشر + أسئلة إضافية من التعليقات والواتساب.</p>
+            <div class="meta"><span>15–20 دقيقة</span><span>الطلاب</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">08</div>
+          <div class="body">
+            <h4>«Super Visa للوالدين — دليل كامل»</h4>
+            <p>شروط الأهلية، الوثائق، المدة، والفرق بينه وبين تأشيرة الزيارة العادية.</p>
+            <div class="meta"><span>7–8 دقائق</span><span>العائلات</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">09</div>
+          <div class="body">
+            <h4>«إعادة النظر — متى تكون ممكنة؟»</h4>
+            <p>شرح الفرق بين إعادة النظر والاستئناف، ومتى يصلح كل خيار.</p>
+            <div class="meta"><span>8 دقائق</span><span>عام</span></div>
+          </div>
+        </div>
+        <div class="idea">
+          <div class="num">10</div>
+          <div class="body">
+            <h4>«الرعاية الأسرية — من يستطيع رعاية من؟»</h4>
+            <p>شرح أنواع الرعاية: الزوج، الأبناء، الوالدين. الشروط والخطوات العامة.</p>
+            <div class="meta"><span>9 دقائق</span><span>العائلات</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">قواعد الإنتاج</div>
+      <h2 class="section-title">كيف نصنع فيديو YouTube ناجح؟</h2>
+
+      <div class="grid g3">
+        <div class="card">
+          <h3>Samah على الكاميرا</h3>
+          <p>الوجه البشري يبني الثقة. لا فيديوهات بصوت فقط أو شرائح جامدة.</p>
+        </div>
+        <div class="card">
+          <h3>عنوان يبحث عنه الناس</h3>
+          <p>استخدم كلمات يكتبها الجمهور في البحث. العنوان = 50% من النجاح.</p>
+        </div>
+        <div class="card">
+          <h3>وصف يحتوي RCIC</h3>
+          <p>الوصف يذكر RCIC #R709587، روابط ذات صلة، وفصول الفيديو.</p>
+        </div>
+        <div class="card">
+          <h3>مقدمة قصيرة جدًا</h3>
+          <p>ابدأ بالمشكلة أو السؤال في أول 15 ثانية. لا شعار طويل ولا ترحيب مطول.</p>
+        </div>
+        <div class="card">
+          <h3>لا ضمانات ولا مواعيد</h3>
+          <p>نفس قواعد CICC. لا نتحدث عن مدة معالجة أو نتيجة مضمونة.</p>
+        </div>
+        <div class="card">
+          <h3>ثمبنيل ثابت</h3>
+          <p>صورة مصغرة موحدة، خط موحد، ألوان الهوية — العلامة تُعرف من النظرة الأولى.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE 6 — PLAN
+============================================================ -->
+<main id="plan" class="page">
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow"><span class="dot"></span> خطة 90 يومًا</div>
+      <h1>من التأسيس إلى <span class="accent">التوسع</span></h1>
+      <p class="lead">
+        خطة شهرية واضحة: ماذا ننشر، على أي منصة، وما الأرقام المتوقعة.
+        مع مراجعة أسبوعية وتعديل مستمر.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الشهر الأول</div>
+      <h2 class="section-title">التأسيس والإطلاق</h2>
+      <p class="section-sub">بناء الأساس، تجهيز الهوية، وإطلاق أول موجة محتوى.</p>
+
+      <div class="grid g2" style="margin-bottom:26px;">
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">المهام التنفيذية</h3>
+          <ul class="clean">
+            <li>جمع الشعار، الصور، أرقام التواصل، وحسابات المنصات</li>
+            <li>كتابة Bio رسمي لكل منصة + RCIC #R709587</li>
+            <li>إنشاء تقويم محتوى 30 يومًا واعتماده من Samah</li>
+            <li>تصوير 10 فيديوهات قصيرة + 2 فيديو طويل</li>
+            <li>تجهيز Google Business Profile (London, Ontario)</li>
+            <li>إعداد قوالب Reels و Carousel موحّدة بالهوية</li>
+          </ul>
+        </div>
+        <div class="panel panel-dark">
+          <h3 style="font-family:'Tajawal';font-size:17px;margin-bottom:14px;">المحتوى المنشور</h3>
+          <ul class="clean">
+            <li>سلسلة «مصطلحات الهجرة» — 4 حلقات</li>
+            <li>فيديو تعريفي: من هي Samah؟</li>
+            <li>«كيف تتحقق من مستشار مرخص؟»</li>
+            <li>«الفرق بين Study Permit و PGWP»</li>
+            <li>أول Q&A على Instagram Live</li>
+            <li>إطلاق الدليل المجاني الأول</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">الأرقام المتوقعة</h3>
+      <div class="grid g4">
+        <div class="metric"><div class="val">15K</div><div class="lbl">وصول Instagram</div></div>
+        <div class="metric"><div class="val">25K</div><div class="lbl">وصول TikTok</div></div>
+        <div class="metric"><div class="val">1.2K</div><div class="lbl">مشاهدات YouTube</div></div>
+        <div class="metric"><div class="val gold">+1,150</div><div class="lbl">متابعون جدد</div></div>
+        <div class="metric"><div class="val gold">40</div><div class="lbl">رسالة واتساب</div></div>
+        <div class="metric"><div class="val">10</div><div class="lbl">استشارات محجوزة</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">الشهر الثاني</div>
+      <h2 class="section-title">التوسع والتفاعل</h2>
+      <p class="section-sub">مضاعفة الإنتاج، إطلاق الورشة، والبدء في المحتوى المتخصص.</p>
+
+      <div class="grid g2" style="margin-bottom:26px;">
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">المهام التنفيذية</h3>
+          <ul class="clean">
+            <li>تحليل أداء الشهر الأول وتعديل التقويم</li>
+            <li>إطلاق أول ورشة مجانية (ويبينار)</li>
+            <li>بدء سلسلة «الملفات المعقدة» مجهولة الهوية</li>
+            <li>إطلاق محتوى B2B على LinkedIn</li>
+            <li>أول حملة إعلانية مدفوعة محدودة على TikTok</li>
+            <li>بناء قائمة بريدية للراغبين</li>
+          </ul>
+        </div>
+        <div class="panel panel-dark">
+          <h3 style="font-family:'Tajawal';font-size:17px;margin-bottom:14px;">المحتوى المنشور</h3>
+          <ul class="clean">
+            <li>«ما هو خطاب الإنصاف الإجرائي؟» — فيديو طويل</li>
+            <li>«ملف متوقف: ماذا يعني؟» — Carousel</li>
+            <li>«سياسة السودان العامة — نظرة عامة»</li>
+            <li>«LMIA لأرباب العمل» — محتوى B2B</li>
+            <li>سلسلة «سؤال من متابع» — أسبوعية</li>
+            <li>Q&A مباشر ثانٍ + ورشة الطلاب</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">الأرقام المتوقعة</h3>
+      <div class="grid g4">
+        <div class="metric"><div class="val">35K</div><div class="lbl">وصول Instagram</div></div>
+        <div class="metric"><div class="val">80K</div><div class="lbl">وصول TikTok</div></div>
+        <div class="metric"><div class="val">4.5K</div><div class="lbl">مشاهدات YouTube</div></div>
+        <div class="metric"><div class="val gold">+3,100</div><div class="lbl">متابعون جدد</div></div>
+        <div class="metric"><div class="val gold">90</div><div class="lbl">رسالة واتساب</div></div>
+        <div class="metric"><div class="val">25</div><div class="lbl">استشارات محجوزة</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الشهر الثالث</div>
+      <h2 class="section-title">التثبيت والتحسين</h2>
+      <p class="section-sub">تحويل الزخم إلى نتائج قابلة للقياس، وبناء نظام مستدام.</p>
+
+      <div class="grid g2" style="margin-bottom:26px;">
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">المهام التنفيذية</h3>
+          <ul class="clean">
+            <li>تحليل شامل لـ 90 يومًا وتحديد أفضل المحتوى أداءً</li>
+            <li>إعادة نشر أفضل 5 قطع محتوى بصيغ محسّنة</li>
+            <li>توسيع الحملات المدفوعة على أفضل المنصات</li>
+            <li>تثبيت نظام إحالة للعملاء الحاليين</li>
+            <li>بناء مكتبة محتوى دائمة (Evergreen Library)</li>
+            <li>وضع خطة الربع القادم بناءً على الأرقام</li>
+          </ul>
+        </div>
+        <div class="panel panel-dark">
+          <h3 style="font-family:'Tajawal';font-size:17px;margin-bottom:14px;">المحتوى المنشور</h3>
+          <ul class="clean">
+            <li>سلسلة «من الدراسة إلى الإقامة» — 4 أجزاء</li>
+            <li>«إعادة النظر: متى تكون ممكنة؟»</li>
+            <li>«Super Visa للوالدين» — Carousel مفصل</li>
+            <li>قصص نجاح مجهولة الهوية (بموافقة)</li>
+            <li>ورشة ثانية: «أرباب العمل والتوظيف الأجنبي»</li>
+            <li>Q&A مباشر ثالث + ملخص الربع</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">الأرقام المتوقعة</h3>
+      <div class="grid g4">
+        <div class="metric"><div class="val">60K</div><div class="lbl">وصول Instagram</div></div>
+        <div class="metric"><div class="val">180K</div><div class="lbl">وصول TikTok</div></div>
+        <div class="metric"><div class="val">10K</div><div class="lbl">مشاهدات YouTube</div></div>
+        <div class="metric"><div class="val gold">+5,800</div><div class="lbl">متابعون جدد</div></div>
+        <div class="metric"><div class="val gold">160</div><div class="lbl">رسالة واتساب</div></div>
+        <div class="metric"><div class="val">45</div><div class="lbl">استشارات محجوزة</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">الملخص التراكمي</div>
+      <h2 class="section-title">نظرة شاملة على الربع الأول</h2>
+
+      <table style="margin-bottom:24px;">
+        <thead>
+          <tr>
+            <th>المؤشر</th>
+            <th>الشهر 1</th>
+            <th>الشهر 2</th>
+            <th>الشهر 3</th>
+            <th>الإجمالي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>وصول Instagram</strong></td><td>15,000</td><td>35,000</td><td>60,000</td><td><strong>110,000</strong></td></tr>
+          <tr><td><strong>وصول TikTok</strong></td><td>25,000</td><td>80,000</td><td>180,000</td><td><strong>285,000</strong></td></tr>
+          <tr><td><strong>مشاهدات YouTube</strong></td><td>1,200</td><td>4,500</td><td>10,000</td><td><strong>15,700</strong></td></tr>
+          <tr><td><strong>متابعون جدد</strong></td><td>+1,150</td><td>+3,100</td><td>+5,800</td><td><strong>+10,050</strong></td></tr>
+          <tr><td><strong>رسائل واتساب</strong></td><td>40</td><td>90</td><td>160</td><td><strong>290</strong></td></tr>
+          <tr><td><strong>استشارات محجوزة</strong></td><td>10</td><td>25</td><td>45</td><td><strong>80</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="grid g4">
+        <div class="metric"><div class="val">~400K</div><div class="lbl">إجمالي الوصول التراكمي</div></div>
+        <div class="metric"><div class="val gold">+10K</div><div class="lbl">إجمالي المتابعين الجدد</div></div>
+        <div class="metric"><div class="val">290</div><div class="lbl">رسالة واتساب</div></div>
+        <div class="metric"><div class="val gold">80</div><div class="lbl">استشارة محجوزة</div></div>
+      </div>
+
+      <div class="panel" style="margin-top:24px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
+        <p style="font-size:13.5px;color:#2A3F55;line-height:1.85;">
+          <strong>ملاحظة:</strong> الأرقام تقديرية مبنية على الالتزام الكامل بجدول النشر، جودة المحتوى،
+          وسرعة اعتماد Samah. الأداء الفعلي يعتمد على تفاعل الجمهور وعوامل المنصات. نراجع الأرقام
+          أسبوعيًا ونعدّل الخطة حسب النتائج الفعلية.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE 7 — TEAM & COMPLIANCE
+============================================================ -->
+<main id="team" class="page">
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow"><span class="dot"></span> الفريق والامتثال</div>
+      <h1>من يفعل ماذا — <span class="accent">وكيف نلتزم</span></h1>
+      <p class="lead">
+        توزيع واضح للمسؤوليات، وإيقاع عمل أسبوعي، وقواعد CICC التي تحمي الترخيص وتضمن الثقة.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الفريق</div>
+      <h2 class="section-title">توزيع المسؤوليات</h2>
+
+      <div class="grid g2" style="margin-bottom:26px;">
+        <div class="panel">
+          <h3 style="font-family:'Tajawal';font-size:17px;color:var(--navy);margin-bottom:14px;">فريق التسويق</h3>
+          <table style="font-size:13px;">
+            <tbody>
+              <tr><td><strong>مدير الحساب</strong></td><td>التواصل مع Samah، الاعتماد، التقارير</td></tr>
+              <tr><td><strong>كاتب محتوى</strong></td><td>نصوص الفيديو، Carousels، المقالات</td></tr>
+              <tr><td><strong>مونتير فيديو</strong></td><td>تحرير YouTube و Reels و TikTok</td></tr>
+              <tr><td><strong>مصمم جرافيك</strong></td><td>القوالب، الصور المصغرة، الهوية البصرية</td></tr>
+              <tr><td><strong>مدير منصات</strong></td><td>الجدولة، النشر، الردود، التفاعل</td></tr>
+              <tr><td><strong>محلل أداء</strong></td><td>تتبع الأرقام، التقارير الأسبوعية</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel panel-dark">
+          <h3 style="font-family:'Tajawal';font-size:17px;margin-bottom:14px;">ما نحتاجه من Samah</h3>
+          <ul class="clean">
+            <li>اعتماد كل منشور وإعلان وصفحة قبل النشر</li>
+            <li>مراجعة كل نص عربي قبل نشره</li>
+            <li>تسجيل الفيديوهات (يوم تصوير شهري)</li>
+            <li>تأكيد أي معلومة عن الرسوم أو المواعيد أو القوانين</li>
+            <li>الموافقة على الشهادات وقصص العملاء</li>
+            <li>حضور Q&A الشهري المباشر</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" style="border-inline-start:4px solid var(--gold);">
+        <h3 style="font-family:'Tajawal';font-size:16px;color:var(--navy);margin-bottom:10px;">إيقاع العمل الأسبوعي</h3>
+        <p style="font-size:14px;color:#2A3F55;line-height:1.85;">
+          <strong>الأحد:</strong> اجتماع تخطيط أسبوعي (30 دقيقة) ·
+          <strong>الاثنين–الثلاثاء:</strong> إنتاج وتحرير ·
+          <strong>الأربعاء:</strong> إرسال المحتوى لاعتماد Samah ·
+          <strong>الخميس:</strong> جدولة ونشر ·
+          <strong>الجمعة:</strong> تحليل الأداء وتقرير أسبوعي.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="kicker">الامتثال</div>
+      <h2 class="section-title">قواعد CICC — غير قابلة للتفاوض</h2>
+      <p class="section-sub">
+        Samah منظمة من CICC، وكل تسويق يجب أن يلتزم بمدونة السلوك المهني.
+        هذه قواعد عامة، وSamah تعتمد كل منشور قبل النشر.
+      </p>
+
+      <div class="grid g2">
+        <div class="panel" style="border-inline-start:4px solid #C0392B;">
+          <h3 style="font-family:'Tajawal';font-size:16px;color:#C0392B;margin-bottom:14px;">✕ ممنوع تمامًا</h3>
+          <ul class="clean">
+            <li>الضمان أو الإيحاء بالموافقة أو نتيجة أو جدول زمني</li>
+            <li>المبالغات مثل «الأفضل» أو «رقم واحد»</li>
+            <li>استخدام «سريع» أو «فعّال» كوعد بالسرعة أو النجاح</li>
+            <li>استخدام لقب لا تملكه Samah</li>
+            <li>نشر رسوم أو مواعيد معالجة أو قواعد برامج دون تأكيدها</li>
+            <li>أسماء عملاء أو أرقام ملفات أو تفاصيل يمكن التعرف عليها</li>
+            <li>وصف أعضاء الفريق كمستشارين</li>
+            <li>ذكر أسماء المنظمات الشريكة في التسويق العام</li>
+          </ul>
+        </div>
+        <div class="panel" style="border-inline-start:4px solid var(--teal);">
+          <h3 style="font-family:'Tajawal';font-size:16px;color:var(--teal);margin-bottom:14px;">✓ مطلوب دائمًا</h3>
+          <ul class="clean">
+            <li>استخدام «Regulated Canadian Immigration Consultant (RCIC)» مع رقم R709587</li>
+            <li>موافقة Samah على كل منشور وإعلان وصفحة قبل النشر</li>
+            <li>مراجعة Samah لكل نص عربي قبل نشره</li>
+            <li>الدقة والحداثة — لا معلومات قديمة</li>
+            <li>حماية سرية العميل في كل المحتوى</li>
+            <li>موافقة Samah على أي شهادة أو قصة عميل</li>
+            <li>وصف الفريق بأدوارهم الحقيقية فقط</li>
+            <li>ترجمة احترافية واعتماد لأي محتوى فرنسي</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:22px;background:#FFF9EC;border-color:rgba(201,162,39,.3);">
+        <h3 style="font-family:'Tajawal';font-size:16px;color:var(--navy);margin-bottom:14px;">قائمة المراجعة قبل كل نشر</h3>
+        <div class="grid g3" style="gap:10px;">
+          <div style="font-size:13.5px;color:#2A3F55;">☐ موافقة Samah</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ لا ضمانات ولا مبالغات</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ RCIC #R709587 مذكور</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ لا رسوم أو مواعيد غير مؤكدة</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ لا تفاصيل عملاء</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ وصف الفريق دقيق</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ لا أسماء شركاء</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ الفرنسية مترجمة ومعتمدة</div>
+          <div style="font-size:13.5px;color:#2A3F55;">☐ النبرة دافئة وواضحة</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="kicker">الخطوات التالية</div>
+      <h2 class="section-title">خمس خطوات للانطلاق</h2>
+      <p class="section-sub">من الخطة إلى التنفيذ خلال أول 7 أيام.</p>
+
+      <div class="grid g2">
+        <div class="card">
+          <span class="tag">الخطوة 1</span>
+          <h3>اجتماع انطلاق مع Samah</h3>
+          <p>60 دقيقة — جمع الأصول والوصول للحسابات وتحديد الأولويات.</p>
+        </div>
+        <div class="card">
+          <span class="tag">الخطوة 2</span>
+          <h3>تقويم محتوى 30 يومًا</h3>
+          <p>تسليمه كاملًا لاعتماد Samah قبل بدء أي إنتاج.</p>
+        </div>
+        <div class="card">
+          <span class="tag">الخطوة 3</span>
+          <h3>يوم تصوير أول</h3>
+          <p>10 فيديوهات قصيرة + 2 فيديو طويل. جلسة واحدة تكفي لشهر.</p>
+        </div>
+        <div class="card">
+          <span class="tag">الخطوة 4</span>
+          <h3>تجهيز الحسابات</h3>
+          <p>Bio، Highlights، Google Business Profile، قوالب موحّدة.</p>
+        </div>
+        <div class="card" style="grid-column:1/-1;background:linear-gradient(100deg,var(--navy),var(--navy-2));color:#fff;border:none;">
+          <span class="tag" style="color:var(--gold);">الخطوة 5</span>
+          <h3 style="color:#fff;">بدء النشر وبدء التقرير الأسبوعي</h3>
+          <p style="color:rgba(255,255,255,.75);">انطلاق فعلي خلال 7 أيام من الاعتماد. تقرير أسبوعي كل جمعة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p style="margin-bottom:6px;">
+      <b>Samah Alim Immigration Services</b> — Regulated Canadian Immigration Consultant (RCIC #R709587)
+    </p>
+    <p>خطة المحتوى التسويقي — 90 يومًا · TikTok · Instagram · YouTube</p>
+  </div>
+</footer>
 
 <script>
 (function(){
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const counter = document.getElementById('counter');
-  const bar = document.getElementById('bar');
-  let i = 0;
+  const pages = Array.from(document.querySelectorAll('.page'));
+  const links = Array.from(document.querySelectorAll('.nav-links a'));
+  const brand = document.querySelector('.brand');
 
-  function go(n){
-    i = Math.max(0, Math.min(slides.length - 1, n));
-    slides.forEach((s, k) => s.classList.toggle('active', k === i));
-    counter.textContent = (i + 1) + ' / ' + slides.length;
-    bar.style.width = ((i + 1) / slides.length * 100) + '%';
-    slides[i].scrollTop = 0;
+  function show(id){
+    const target = document.getElementById(id);
+    if(!target) return;
+    pages.forEach(p => p.classList.toggle('active', p.id === id));
+    links.forEach(a => a.classList.toggle('active', a.dataset.page === id));
+    window.scrollTo({top:0, behavior:'instant'});
+    document.title = 'Samah Alim — ' + (links.find(a=>a.dataset.page===id)?.textContent || 'استراتيجية');
   }
 
-  document.getElementById('next').addEventListener('click', () => go(i + 1));
-  document.getElementById('prev').addEventListener('click', () => go(i - 1));
-
-  document.addEventListener('keydown', (e) => {
-    // RTL: forward = ArrowLeft
-    if (e.key === 'ArrowLeft' || e.key === 'PageDown' || e.key === ' ') {
-      e.preventDefault(); go(i + 1);
-    }
-    if (e.key === 'ArrowRight' || e.key === 'PageUp') {
-      e.preventDefault(); go(i - 1);
-    }
-    if (e.key === 'Home') { e.preventDefault(); go(0); }
-    if (e.key === 'End')  { e.preventDefault(); go(slides.length - 1); }
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.dataset.page;
+      history.replaceState(null,'','#'+id);
+      show(id);
+    });
   });
 
-  // swipe support
-  let x0 = null;
-  document.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
-  document.addEventListener('touchend', e => {
-    if (x0 === null) return;
-    const dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 60) go(dx > 0 ? i - 1 : i + 1);
-    x0 = null;
-  }, {passive:true});
+  brand.addEventListener('click', e => {
+    e.preventDefault();
+    history.replaceState(null,'','#overview');
+    show('overview');
+  });
 
-  go(0);
+  // initial
+  const hash = location.hash.replace('#','') || 'overview';
+  show(hash);
+
+  window.addEventListener('hashchange', () => {
+    show(location.hash.replace('#','') || 'overview');
+  });
 })();
 </script>
 
